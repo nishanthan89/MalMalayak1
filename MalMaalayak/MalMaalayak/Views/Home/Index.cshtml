@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable< MalMaalayak.Models.PersonViewDetail>
 @{
     Layout = null;
 }
@@ -35,18 +35,18 @@
         <a href="#" class="probootstrap-close-menu js-probootstrap-close-menu d-md-none"><span class="oi oi-arrow-left"></span> Close</a>
         <div class="probootstrap-site-logo probootstrap-animate" data-animate-effect="fadeInLeft">
 
-            <a href="index.html" class="mb-2 d-block probootstrap-logo">Aside</a>
-            <p class="mb-0">Another free html5 bootstrap 4 template by <a href="https://probootstrap.com/" target="_blank">ProBootstrap</a></p>
+            <a href="index.html" class="mb-2 d-block probootstrap-logo">மண்கும்பான்</a>
+            <p class="mb-0">Test of title</p>
         </div>
         <div class="probootstrap-overflow">
             <nav class="probootstrap-nav">
                 <ul>
                     <li class="probootstrap-animate active" data-animate-effect="fadeInLeft"><a href="index.cshtml">Home</a></li>
-                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="about.html">About</a></li>
-                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a>@Html.ActionLink("Home", "About") Doi</a></li>
-                   
+                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Groom</a></li>
+                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Bride</a></li>
                     <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="services.html">Services</a></li>
-                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="portfolio.html">Portfolio</a></li>
+                    @*<li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="portfolio.html">Portfolio</a></li>*@
+                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="about.html">About</a></li>
                     <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -56,7 +56,7 @@
                     <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
                     <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
                 </ul>
-                <p>&copy; 2017 <a href="https://probootstrap.com/" target="_blank">ProBootstrap:Aside</a>. <br> All Rights Reserved.</p>
+                <p>&copy; 2017  <br> All Rights Reserved.</p>
             </footer>
         </div>
     </aside>
@@ -66,7 +66,7 @@
             <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
             <div class="probootstrap-main-site-logo"><a href="index.html">Aside</a></a></div>
         </div>
-        <div class="card-columns">
+        @*<div class="card-columns">
             <div class="card">
                 <a href="single.html">
                     <img class="card-img-top probootstrap-animate" src="~/images/img_1.jpg" alt="Card image cap" data-animate-effect="fadeIn">
@@ -172,7 +172,27 @@
                     <img class="card-img-top probootstrap-animate" src="~/images/img_21.jpg" alt="Card image cap" data-animate-effect="fadeIn">
                 </a>
             </div>
-        </div>
+        </div>*@
+
+
+        @*<table>
+            <tbody>
+               @foreach (var item in)
+               {
+                <tr>
+                    <th scope="row">@item.</th>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>@item.Department</td>
+                    <td>
+                        <a data-value="@item.Id"
+                           href="javascript:void(0)" class="btnEdit">Edit</a>
+                    </td>
+                </tr>}
+            </tbody>
+
+        </table>*@
+
 
         <div class="container-fluid d-md-none">
             <div class="row">
