@@ -93,4 +93,8 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Mic
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\obj\Debug\MalMaalayak.csproj.CoreCompileInputs.cache
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\obj\Debug\MalMaalayak.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\obj\Debug\MalMaalayak.pdb
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.SqlServer.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.xml
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.SqlServer.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\obj\Debug\MalMaalayak.csprojResolveAssemblyReference.cache

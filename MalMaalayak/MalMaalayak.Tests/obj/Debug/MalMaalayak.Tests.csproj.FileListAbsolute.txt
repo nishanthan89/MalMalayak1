@@ -80,3 +80,7 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\o
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\obj\Debug\MalMaalayak.Tests.csproj.CoreCompileInputs.cache
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\obj\Debug\MalMaalayak.Tests.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\obj\Debug\MalMaalayak.Tests.pdb
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\EntityFramework.SqlServer.xml

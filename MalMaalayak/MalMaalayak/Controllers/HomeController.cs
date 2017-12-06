@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MalMaalayak.Models;
 
 namespace MalMaalayak.Controllers
 {
@@ -10,7 +11,13 @@ namespace MalMaalayak.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(this.GetClientDetail(1));
+        }
+
+        [HttpPost]
+        public ActionResult Index(int currentPageIndex)
+        {
+            return View(this.GetClientDetail(currentPageIndex));
         }
 
         public ActionResult About()
@@ -25,6 +32,31 @@ namespace MalMaalayak.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+
+        private ClientDetailClassModel GetClientDetail(int currentPage) {
+            int maxRows = 1;
+            ClientDetailClassModel clientObj = new ClientDetailClassModel();
+
+            using (MalMalayakDbEntities dbEntity = new MalMalayakDbEntities()) {
+                //ClientDetailClassModel clientObj = new ClientDetailClassModel();
+                clientObj.ClientList= (from clint in dbEntity.ClientDetails
+                                       select clint)
+                        .OrderBy(clint => clint.Id)
+                        .Skip((currentPage - 1) * maxRows)
+                        .Take(maxRows).ToList();
+
+
+                double pageCount = (double)((decimal)dbEntity.ClientDetails.Count() / Convert.ToDecimal(maxRows));
+                clientObj.PageCount = (int)Math.Ceiling(pageCount);
+
+                clientObj.CurrentPageIndex = currentPage;
+                //return clientObj;
+
+            }
+                
+                return clientObj;
         }
     }
 }
