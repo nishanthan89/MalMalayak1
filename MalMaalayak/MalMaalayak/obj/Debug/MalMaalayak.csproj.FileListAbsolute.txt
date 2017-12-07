@@ -97,4 +97,8 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Ent
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.SqlServer.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.SqlServer.xml
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.Mvc.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.xml
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.Mvc.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\obj\Debug\MalMaalayak.csprojResolveAssemblyReference.cache

@@ -1,6 +1,5 @@
 ﻿@model MalMaalayak.Models.ClientDetailClassModel
 
-
 @{
     Layout = null;
 }
@@ -31,7 +30,11 @@
     <link rel="stylesheet" href="~/css/animate.css">
     <link rel="stylesheet" href="~/css/style.css">
 </head>
+
+
 <body>
+    @*@using (Html.BeginForm())
+        {*@
 
     <aside class="probootstrap-aside js-probootstrap-aside">
         <a href="#" class="probootstrap-close-menu js-probootstrap-close-menu d-md-none"><span class="oi oi-arrow-left"></span> Close</a>
@@ -64,348 +67,70 @@
     </aside>
 
     <main role="main" class="probootstrap-main js-probootstrap-main">
-        <div class="probootstrap-bar">
-            <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
-            <div class="probootstrap-main-site-logo"><a href="index.html">Aside</a></a></div>
-        </div>
-        @*<div class="card-group">
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_1.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_2.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_3.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_4.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_5.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_6.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_7.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_8.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_9.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_10.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_11.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_12.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_13.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_14.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_15.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_16.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_17.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_18.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_19.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_20.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-            <div class="card">
-                <a href="single.html">
-                    <img class="card-img-top probootstrap-animate" src="~/images/img_21.jpg" alt="Card image cap" data-animate-effect="fadeIn">
-                </a>
-            </div>
-        </div>*@
 
-
-        @*@for ()
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
         {
-            <div class="card-group">
-                <div class="card">
-                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+            <div class="probootstrap-bar">
+                <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
+                <div class="probootstrap-main-site-logo"><a href="index.html">Aside</a></div>
                     </div>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
 
-        }*@
+                        @*<table cellpadding="0" cellspacing="0">*@
 
-
-
-
-        @*<table cellpadding="0" cellspacing="0">*@
-            
-            @foreach (ClientDetail cd in Model.ClientList)
-            {
-                <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">@cd.Star</p>
-                        <p class="card-text"><small class="text-muted">@cd.Job</small></p>
-                        <p class="card-text">@cd.Gender</p>
-                        <p class="card-text">@cd.Cappt</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-
-
-                @*<tr>
-                    <td>@cd.Job</td>
-                    <td>@cd.Star</td>
-                    <td>@cd.Gender</td>
-                    <td>@cd.Cappt</td>
-                </tr>*@
-            }
-        @*</table>*@
-
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                @for (int i = 1; i <= Model.PageCount; i++)
-                {
-                    <td>
-                        @if (i != Model.CurrentPageIndex)
+                        foreach (ClientDetail cd in Model.ClientList)
                         {
-                            <a href="javascript:PagerClick(@i);">@i</a>
+                            <div class="card" style="width: 20rem;">
+                                <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
+                                <div class="card-block">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">@cd.Star</p>
+                                    <p class="card-text"><small class="text-muted">@cd.Job</small></p>
+                                    <p class="card-text">@cd.Gender</p>
+                                    <p class="card-text">@cd.Cappt</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+
+
+                              
                         }
-                        else
-                        {
-                            <span>@i</span>
-                        }
-                    </td>
-                }
-            </tr>
-        </table>
+
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                @for (int i = 1; i <= Model.PageCount; i++)
+                                {
+                                    <td>
+                                        @if (i != Model.CurrentPageIndex)
+                                        {
+                                            <a href="javascript:PagerClick(@i);">@i</a>
+                                        }
+                                        else
+                                        {
+                                            <span>@i</span>
+                                        }
+                                    </td>
+                                }
+                            </tr>
+                        </table>
+                        <input type="hidden" id="hfCurrentPageIndex" name="currentPageIndex" />
 
 
-        @*<div class="card-group">
-            <div class="card">
-                <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
+                        <div class="container-fluid d-md-none">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="list-unstyled d-flex probootstrap-aside-social">
+                                        <li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>
+                                        <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
+                                        <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
+                                    </ul>
+                                    <p>&copy; 2017 <a href="https://probootstrap.com/" target="_blank">ProBootstrap:Aside</a>. <br> All Rights Reserved. Designed by <a href="https://probootstrap.com/" target="_blank">ProBootstrap.com</a></p>
+                                </div>
+                            </div>
+                        </div>
 
-
-            <div class="card-group">
-
-                <div class="card">
-                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-
-                </div>
-            <div class="card-group">
-                <div class="card">
-                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-down" src="~/images/img_1.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>*@
-
-
-
-
-
-
-
-
-
-
-
-        @*<table>
-            <tbody>
-               @foreach (var item in)
-               {
-                <tr>
-                    <th scope="row">@item.</th>
-                    <td>@item.Name</td>
-                    <td>@item.Price</td>
-                    <td>@item.Department</td>
-                    <td>
-                        <a data-value="@item.Id"
-                           href="javascript:void(0)" class="btnEdit">Edit</a>
-                    </td>
-                </tr>}
-            </tbody>
-
-        </table>*@
-
-
-        <div class="container-fluid d-md-none">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="list-unstyled d-flex probootstrap-aside-social">
-                        <li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>
-                        <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
-                        <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
-                    </ul>
-                    <p>&copy; 2017 <a href="https://probootstrap.com/" target="_blank">ProBootstrap:Aside</a>. <br> All Rights Reserved. Designed by <a href="https://probootstrap.com/" target="_blank">ProBootstrap.com</a></p>
-                </div>
-            </div>
-        </div>
+        }
     </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script src="~/Scripts/js/jquery-3.2.1.slim.min.js"></script>
     <script src="~/Scripts/js/popper.min.js"></script>
@@ -416,14 +141,11 @@
     <script src="~/Scripts/js/imagesloaded.pkgd.min.js"></script>
     <script src="~/Scripts/js/main.js"></script>
 
-
-
-
     <script type="text/javascript">
-            function PagerClick(index) {
-                document.getElementById("hfCurrentPageIndex").value = index;
-                document.forms[0].submit();
-            }
+        function PagerClick(index) {
+            document.getElementById("hfCurrentPageIndex").value = index;
+            document.forms[0].submit();
+        }
     </script>
 
 </body>

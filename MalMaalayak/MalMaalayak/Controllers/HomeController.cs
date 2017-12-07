@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MalMaalayak.Models;
+using PagedList;
 
 namespace MalMaalayak.Controllers
 {
@@ -36,7 +37,7 @@ namespace MalMaalayak.Controllers
 
 
         private ClientDetailClassModel GetClientDetail(int currentPage) {
-            int maxRows = 1;
+            int maxRows = 9;
             ClientDetailClassModel clientObj = new ClientDetailClassModel();
 
             using (MalMalayakDbEntities dbEntity = new MalMalayakDbEntities()) {
@@ -47,16 +48,15 @@ namespace MalMaalayak.Controllers
                         .Skip((currentPage - 1) * maxRows)
                         .Take(maxRows).ToList();
 
-
+                //this is for paging
                 double pageCount = (double)((decimal)dbEntity.ClientDetails.Count() / Convert.ToDecimal(maxRows));
                 clientObj.PageCount = (int)Math.Ceiling(pageCount);
 
                 clientObj.CurrentPageIndex = currentPage;
-                //return clientObj;
+                return clientObj;
 
             }
-                
-                return clientObj;
+
         }
     }
 }
