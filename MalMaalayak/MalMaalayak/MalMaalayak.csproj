@@ -166,43 +166,53 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="ClientDetail.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClientDetail.Context.tt</DependentUpon>
+    <Compile Include="BL\CoupleBL.cs" />
+    <Compile Include="Cast.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="ClientDetail.cs">
-      <DependentUpon>ClientDetail.tt</DependentUpon>
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClientDetail.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClientDetail.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ClientDetail1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClientDetail.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\CoupleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Gender.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MalMalayak_DB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MalMalayak_DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MalMalayak_DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MalMalayak_DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MalMalayak_DB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ClientDetailClassModel.cs" />
     <Compile Include="Models\PersonViewDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Star.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClientDetail.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClientDetail.edmx</DependentUpon>
-      <LastGenOutput>ClientDetail.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ClientDetail.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClientDetail.edmx</DependentUpon>
-      <LastGenOutput>ClientDetail1.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
@@ -250,6 +260,16 @@
     <Content Include="images\square-person_1.jpg" />
     <Content Include="images\square-person_2.jpg" />
     <Content Include="images\square-person_3.jpg" />
+    <Content Include="MalMalayak_DB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MalMalayak_DB.edmx</DependentUpon>
+      <LastGenOutput>MalMalayak_DB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MalMalayak_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MalMalayak_DB.edmx</DependentUpon>
+      <LastGenOutput>MalMalayak_DB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -262,12 +282,12 @@
     <Content Include="fonts\open-iconic\open-iconic.otf" />
     <Content Include="fonts\open-iconic\open-iconic.ttf" />
     <Content Include="fonts\open-iconic\open-iconic.woff" />
-    <EntityDeploy Include="ClientDetail.edmx">
+    <EntityDeploy Include="MalMalayak_DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ClientDetail.Designer.cs</LastGenOutput>
+      <LastGenOutput>MalMalayak_DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="ClientDetail.edmx.diagram">
-      <DependentUpon>ClientDetail.edmx</DependentUpon>
+    <Content Include="MalMalayak_DB.edmx.diagram">
+      <DependentUpon>MalMalayak_DB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -305,9 +325,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="scss\style.scss" />
     <Content Include="Views\Home\Single.cshtml" />
+    <Content Include="Views\Couple\GetCouple.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DAL\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

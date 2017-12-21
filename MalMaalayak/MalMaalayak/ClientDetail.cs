@@ -18,9 +18,15 @@ namespace MalMaalayak
         public string NIC { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Gender { get; set; }
-        public int Star { get; set; }
-        public Nullable<int> Cappt { get; set; }
+        public Nullable<int> GenderId { get; set; }
+        public Nullable<int> StarId { get; set; }
+        public Nullable<int> CapptId { get; set; }
         public string Job { get; set; }
+    
+        public virtual Cast Cast { get; set; }
+        public virtual Gender Gender { get; set; }
+        public virtual Star Star { get; set; }
+
+
     }
 }

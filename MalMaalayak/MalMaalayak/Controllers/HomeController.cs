@@ -37,10 +37,10 @@ namespace MalMaalayak.Controllers
 
 
         private ClientDetailClassModel GetClientDetail(int currentPage) {
-            int maxRows = 9;
+            int maxRows = 16;
             ClientDetailClassModel clientObj = new ClientDetailClassModel();
 
-            using (MalMalayakDbEntities dbEntity = new MalMalayakDbEntities()) {
+            using (MalMalayakDbEntities2 dbEntity = new MalMalayakDbEntities2()) {
                 //ClientDetailClassModel clientObj = new ClientDetailClassModel();
                 clientObj.ClientList= (from clint in dbEntity.ClientDetails
                                        select clint)

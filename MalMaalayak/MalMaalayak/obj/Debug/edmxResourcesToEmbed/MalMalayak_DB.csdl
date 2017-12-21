@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MalMalayakDbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cast">
+    <Key>
+      <PropertyRef Name="CastId" />
+    </Key>
+    <Property Name="CastId" Type="Int32" Nullable="false" />
+    <Property Name="CastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ClientDetails" Relationship="Self.FK_ClientDetail_Cast" FromRole="Cast" ToRole="ClientDetail" />
+  </EntityType>
+  <EntityType Name="ClientDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GenderId" Type="Int32" />
+    <Property Name="StarId" Type="Int32" />
+    <Property Name="CapptId" Type="Int32" />
+    <Property Name="Job" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cast" Relationship="Self.FK_ClientDetail_Cast" FromRole="ClientDetail" ToRole="Cast" />
+    <NavigationProperty Name="Gender" Relationship="Self.FK_ClientDetail_Gender" FromRole="ClientDetail" ToRole="Gender" />
+    <NavigationProperty Name="Star" Relationship="Self.FK_ClientDetail_Star" FromRole="ClientDetail" ToRole="Star" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="GenderId" />
+    </Key>
+    <Property Name="GenderId" Type="Int32" Nullable="false" />
+    <Property Name="GenderType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ClientDetails" Relationship="Self.FK_ClientDetail_Gender" FromRole="Gender" ToRole="ClientDetail" />
+  </EntityType>
+  <EntityType Name="Star">
+    <Key>
+      <PropertyRef Name="StarId" />
+    </Key>
+    <Property Name="StarId" Type="Int32" Nullable="false" />
+    <Property Name="StarName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ClientDetails" Relationship="Self.FK_ClientDetail_Star" FromRole="Star" ToRole="ClientDetail" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_ClientDetail_Cast">
+    <End Role="Cast" Type="Self.Cast" Multiplicity="0..1" />
+    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cast">
+        <PropertyRef Name="CastId" />
+      </Principal>
+      <Dependent Role="ClientDetail">
+        <PropertyRef Name="CapptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientDetail_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="GenderId" />
+      </Principal>
+      <Dependent Role="ClientDetail">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientDetail_Star">
+    <End Role="Star" Type="Self.Star" Multiplicity="0..1" />
+    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Star">
+        <PropertyRef Name="StarId" />
+      </Principal>
+      <Dependent Role="ClientDetail">
+        <PropertyRef Name="StarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MalMalayakDbEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Casts" EntityType="Self.Cast" />
+    <EntitySet Name="ClientDetails" EntityType="Self.ClientDetail" />
+    <EntitySet Name="Genders" EntityType="Self.Gender" />
+    <EntitySet Name="Stars" EntityType="Self.Star" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_ClientDetail_Cast" Association="Self.FK_ClientDetail_Cast">
+      <End Role="Cast" EntitySet="Casts" />
+      <End Role="ClientDetail" EntitySet="ClientDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientDetail_Gender" Association="Self.FK_ClientDetail_Gender">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="ClientDetail" EntitySet="ClientDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientDetail_Star" Association="Self.FK_ClientDetail_Star">
+      <End Role="Star" EntitySet="Stars" />
+      <End Role="ClientDetail" EntitySet="ClientDetails" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MalMalayakDbModel1.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MalMalayakDbModel1.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

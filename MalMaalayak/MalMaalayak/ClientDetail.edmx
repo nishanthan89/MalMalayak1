@@ -4,25 +4,108 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MalMalayakDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MalMalayakDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cast">
+          <Key>
+            <PropertyRef Name="CastId" />
+          </Key>
+          <Property Name="CastId" Type="int" Nullable="false" />
+          <Property Name="CastName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="ClientDetail">
           <Key>
-            <PropertyRef Name="NIC" />
+            <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="Star" Type="int" Nullable="false" />
-          <Property Name="Cappt" Type="int" />
-          <Property Name="Job" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NIC" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="StarId" Type="int" />
+          <Property Name="CapptId" Type="int" />
+          <Property Name="Job" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="GenderType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Star">
+          <Key>
+            <PropertyRef Name="StarId" />
+          </Key>
+          <Property Name="StarId" Type="int" Nullable="false" />
+          <Property Name="StarName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_ClientDetail_Cast">
+          <End Role="Cast" Type="Self.Cast" Multiplicity="0..1" />
+          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cast">
+              <PropertyRef Name="CastId" />
+            </Principal>
+            <Dependent Role="ClientDetail">
+              <PropertyRef Name="CapptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientDetail_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="ClientDetail">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientDetail_Star">
+          <End Role="Star" Type="Self.Star" Multiplicity="0..1" />
+          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Star">
+              <PropertyRef Name="StarId" />
+            </Principal>
+            <Dependent Role="ClientDetail">
+              <PropertyRef Name="StarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MalMalayakDbModelStoreContainer">
+          <EntitySet Name="Cast" EntityType="Self.Cast" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientDetail" EntityType="Self.ClientDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Star" EntityType="Self.Star" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClientDetail_Cast" Association="Self.FK_ClientDetail_Cast">
+            <End Role="Cast" EntitySet="Cast" />
+            <End Role="ClientDetail" EntitySet="ClientDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientDetail_Gender" Association="Self.FK_ClientDetail_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="ClientDetail" EntitySet="ClientDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientDetail_Star" Association="Self.FK_ClientDetail_Star">
+            <End Role="Star" EntitySet="Star" />
+            <End Role="ClientDetail" EntitySet="ClientDetail" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MalMalayakDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -31,17 +114,110 @@
             <PropertyRef Name="NIC" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Star" Type="Int32" Nullable="false" />
           <Property Name="Cappt" Type="Int32" />
-          <Property Name="Job" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Job" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="StarId" Type="Int32" />
+          <Property Name="CapptId" Type="Int32" />
+          <NavigationProperty Name="Cast" Relationship="MalMalayakDbModel.FK_ClientDetail_Cast" FromRole="ClientDetail" ToRole="Cast" />
+          <NavigationProperty Name="Gender1" Relationship="MalMalayakDbModel.FK_ClientDetail_Gender" FromRole="ClientDetail" ToRole="Gender" />
+          <NavigationProperty Name="Star1" Relationship="MalMalayakDbModel.FK_ClientDetail_Star" FromRole="ClientDetail" ToRole="Star" />
         </EntityType>
         <EntityContainer Name="MalMalayakDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ClientDetails" EntityType="Self.ClientDetail" />
+          <EntitySet Name="Casts" EntityType="MalMalayakDbModel.Cast" />
+          <EntitySet Name="Genders" EntityType="MalMalayakDbModel.Gender" />
+          <EntitySet Name="Stars" EntityType="MalMalayakDbModel.Star" />
+          <EntitySet Name="sysdiagrams" EntityType="MalMalayakDbModel.sysdiagram" />
+          <AssociationSet Name="FK_ClientDetail_Cast" Association="MalMalayakDbModel.FK_ClientDetail_Cast">
+            <End Role="Cast" EntitySet="Casts" />
+            <End Role="ClientDetail" EntitySet="ClientDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientDetail_Gender" Association="MalMalayakDbModel.FK_ClientDetail_Gender">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="ClientDetail" EntitySet="ClientDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientDetail_Star" Association="MalMalayakDbModel.FK_ClientDetail_Star">
+            <End Role="Star" EntitySet="Stars" />
+            <End Role="ClientDetail" EntitySet="ClientDetails" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Cast">
+          <Key>
+            <PropertyRef Name="CastId" />
+          </Key>
+          <Property Name="CastId" Type="Int32" Nullable="false" />
+          <Property Name="CastName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClientDetails" Relationship="MalMalayakDbModel.FK_ClientDetail_Cast" FromRole="Cast" ToRole="ClientDetail" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="GenderType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClientDetails" Relationship="MalMalayakDbModel.FK_ClientDetail_Gender" FromRole="Gender" ToRole="ClientDetail" />
+        </EntityType>
+        <EntityType Name="Star">
+          <Key>
+            <PropertyRef Name="StarId" />
+          </Key>
+          <Property Name="StarId" Type="Int32" Nullable="false" />
+          <Property Name="StarName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClientDetails" Relationship="MalMalayakDbModel.FK_ClientDetail_Star" FromRole="Star" ToRole="ClientDetail" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_ClientDetail_Cast">
+          <End Type="MalMalayakDbModel.Cast" Role="Cast" Multiplicity="0..1" />
+          <End Type="MalMalayakDbModel.ClientDetail" Role="ClientDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cast">
+              <PropertyRef Name="CastId" />
+            </Principal>
+            <Dependent Role="ClientDetail">
+              <PropertyRef Name="CapptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientDetail_Gender">
+          <End Type="MalMalayakDbModel.Gender" Role="Gender" Multiplicity="0..1" />
+          <End Type="MalMalayakDbModel.ClientDetail" Role="ClientDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="ClientDetail">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientDetail_Star">
+          <End Type="MalMalayakDbModel.Star" Role="Star" Multiplicity="0..1" />
+          <End Type="MalMalayakDbModel.ClientDetail" Role="ClientDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Star">
+              <PropertyRef Name="StarId" />
+            </Principal>
+            <Dependent Role="ClientDetail">
+              <PropertyRef Name="StarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -51,14 +227,50 @@
           <EntitySetMapping Name="ClientDetails">
             <EntityTypeMapping TypeName="MalMalayakDbModel.ClientDetail">
               <MappingFragment StoreEntitySet="ClientDetail">
+                <ScalarProperty Name="CapptId" ColumnName="CapptId" />
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="NIC" ColumnName="NIC" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Star" ColumnName="Star" />
-                <ScalarProperty Name="Cappt" ColumnName="Cappt" />
                 <ScalarProperty Name="Job" ColumnName="Job" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Casts">
+            <EntityTypeMapping TypeName="MalMalayakDbModel.Cast">
+              <MappingFragment StoreEntitySet="Cast">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CastName" ColumnName="CastName" />
+                <ScalarProperty Name="CastId" ColumnName="CastId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="MalMalayakDbModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderType" ColumnName="GenderType" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stars">
+            <EntityTypeMapping TypeName="MalMalayakDbModel.Star">
+              <MappingFragment StoreEntitySet="Star">
+                <ScalarProperty Name="StarName" ColumnName="StarName" />
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MalMalayakDbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
