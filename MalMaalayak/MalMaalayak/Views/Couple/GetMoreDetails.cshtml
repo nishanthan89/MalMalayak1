@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+    <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">
+        <div>
+            <p>
+                Here have to display more details as table / grid view
+            </p>
+        </div>
+    </main>
+
+
+    <script type="text/javascript">
+        function PagerClick(index) {
+            document.getElementById("hfCurrentPageIndex").value = index;
+            document.forms[0].submit();
+        }
+    </script>
+
+</body>
+</html>

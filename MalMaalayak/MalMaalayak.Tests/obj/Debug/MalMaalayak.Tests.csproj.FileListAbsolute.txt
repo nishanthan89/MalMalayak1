@@ -84,3 +84,5 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\b
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\EntityFramework.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\PagedList.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\PagedList.xml

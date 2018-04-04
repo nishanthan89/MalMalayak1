@@ -1,81 +1,13 @@
 ﻿@model MalMaalayak.Models.ClientDetailClassModel
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!--
-    More Templates Visit ==> ProBootstrap.com
-    Free Template by ProBootstrap.com under the License Creative Commons 3.0 ==> (probootstrap.com/license)
-
-    IMPORTANT: You can do whatever you want with this template but you need to keep the footer link back to ProBootstrap.com
-    -->
-    <title>Aside - Free HTML5 Bootstrap 4 Template by ProBootstrap.com</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Free HTML5 Website Template by ProBootstrap.com" />
-    <meta name="keywords" content="free bootstrap 4, free bootstrap 4 template, free website templates, free html5, free template, free website template, html5, css3, mobile first, responsive" />
-    <meta name="author" content="ProBootstrap.com" />
-
-    <!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> -->
-    <link rel="stylesheet" href="~/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/open-iconic-bootstrap.min.css">
-
-    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="~/css/icomoon.css">
-    <link rel="stylesheet" href="~/css/animate.css">
-    <link rel="stylesheet" href="~/css/style.css">
-</head>
-
-
 <body>
-
-    <aside class="probootstrap-aside js-probootstrap-aside">
-        <a href="#" class="probootstrap-close-menu js-probootstrap-close-menu d-md-none"><span class="oi oi-arrow-left"></span> Close</a>
-        <div class="probootstrap-site-logo probootstrap-animate" data-animate-effect="fadeInLeft">
-
-            <a href="index.html" class="mb-2 d-block probootstrap-logo">மண்கும்பான்</a>
-            <p class="mb-0">Test of title</p>
-        </div>
-        <div class="probootstrap-overflow">
-            <nav class="probootstrap-nav">
-                <ul>
-                    <li class="probootstrap-animate active" data-animate-effect="fadeInLeft">
-                        <a href="@Url.Action("Index", "Home")"><span>Home</span></a></li>
-
-                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft">
-                        <a href="@Url.Action("GetCouple", "Couple")"><span>Groom</span></a></li>
-                   
-
-
-
-
-                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft">
-                        <a href="@Url.Action("GetCoupleFemale", "Couple")"><span>Bride</span></a>
-                    </li>
-                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="services.html">Services</a></li>
-                    @*<li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="portfolio.html">Portfolio</a></li>*@
-                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="about.html">About</a></li>
-                    <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <footer class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
-                <ul class="list-unstyled d-flex probootstrap-aside-social">
-                    <li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>
-                    <li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>
-                    <li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>
-                </ul>
-                <p>&copy; 2017  <br> All Rights Reserved.</p>
-            </footer>
-        </div>
-    </aside>
-
-    <main role="main" class="probootstrap-main js-probootstrap-main">
-     
+    <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">
 
             @using (Html.BeginForm("Index", "Home", FormMethod.Post))
             {
@@ -92,19 +24,22 @@
                     @foreach (ClientDetail cd in Model.ClientList.Skip(c).Take(4))
                     {
 
-                        <div class="col-md-3" >
+                        <div class="col-lg-3 col-md-6 mb-4" >
                             <div class="card" style="width: 15rem;" >
                                 @*<div class="h-50 d-inline-block">*@
                                 <div>
                                     <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
                                 </div>
-                                <div class="card-block ">
+                                <div class="card-body ">
                                     <h4 class="card-title">Card title</h4>
                                     <p class="card-text" style="line-height:10px">@cd.StarId</p>
                                     <p class="card-text" style="line-height:10px"><small class="text-muted">@cd.Job</small></p>
                                     <p class="card-text" style="line-height:10px">@cd.GenderId</p>
                                     <p class="card-text" style="line-height:10px">@cd.CapptId</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    @*<a href="@Url.Action("GetMoreDetails", "Couple")" class="btn btn-primary">More Detail</a>*@
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("GetMoreDetails", "Couple")" class="btn btn-primary">More</a>
                                 </div>
                                 @*</div>*@
                             </div>
@@ -113,8 +48,6 @@
                     }
                 </div>
             }
-
-
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         @for (int i = 1; i <= Model.PageCount; i++)
@@ -155,14 +88,7 @@
 
 
 
-    <script src="~/Scripts/js/jquery-3.2.1.slim.min.js"></script>
-    <script src="~/Scripts/js/popper.min.js"></script>
-    <script src="~/Scripts/js/bootstrap.min.js"></script>
-    <script src="~/Scripts/js/owl.carousel.min.js"></script>
-    <script src="~/Scripts/js/jquery.waypoints.min.js"></script>
-    <script src="~/Scripts/js/imagesloaded.pkgd.min.js"></script>
-    <script src="~/Scripts/js/imagesloaded.pkgd.min.js"></script>
-    <script src="~/Scripts/js/main.js"></script>
+
 
     <script type="text/javascript">
         function PagerClick(index) {

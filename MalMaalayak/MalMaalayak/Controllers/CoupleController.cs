@@ -1,5 +1,6 @@
 ﻿using MalMaalayak.BL;
 using MalMaalayak.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,101 +14,36 @@ namespace MalMaalayak.Controllers
         CoupleBL coupleBL = new CoupleBL();
         public IList<ClientDetailClassModel> coupleList = new List<ClientDetailClassModel>();
         // GET: Couple
-        public ActionResult GetCouple()
+        public ActionResult GetCouple(int? page = 1)
         {
-            var CoupleDetails =coupleBL.GetCouple();
+            //int ? page=1;
+            int pageSize = 10;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            var CoupleDetails =coupleBL.GetCouple().OrderBy
+                                (m => m.StarName).ToPagedList(pageIndex, pageSize); 
 
             return View(CoupleDetails);
         }
 
         [HttpGet]
-        public ActionResult GetCoupleFemale()
+        public ActionResult GetCoupleFemale(int? page = 1)
         {
-            var CoupleDetails = coupleBL.GetCoupleFemale();
+           // int? page = 1;
+            int pageSize = 10;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+
+
+            var CoupleDetails = coupleBL.GetCoupleFemale().OrderBy
+                                (m => m.StarName).ToPagedList(pageIndex, pageSize);
             return View("GetCouple", CoupleDetails);
         }
-
-
-
-        // GET: Couple/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+        public ActionResult GetMoreDetails()
         {
-            return View();
+            return View("GetMoreDetails");
         }
 
-        // GET: Couple/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult AddCouple()
-        {
-            return View();
-        }
-
-
-
-
-        // POST: Couple/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Couple/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Couple/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Couple/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Couple/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

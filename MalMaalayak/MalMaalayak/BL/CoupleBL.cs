@@ -1,4 +1,5 @@
 ﻿using MalMaalayak.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,8 @@ namespace MalMaalayak.BL
 
         public IEnumerable<ClientDetailClassModel> GetCouple()
         {
-            
-            // ClientDetailClassModel clientObj = new ClientDetailClassModel();
-
 
             //retrive data as list
-           
-
             var coupleList = (from cpl in dbEntity.ClientDetails
 
                               join gd in dbEntity.Genders on cpl.GenderId equals gd.GenderId
@@ -47,6 +43,7 @@ namespace MalMaalayak.BL
 
         public IEnumerable<ClientDetailClassModel> GetCoupleFemale()
         {
+
             // ClientDetailClassModel clientObj = new ClientDetailClassModel();
 
 
@@ -73,6 +70,13 @@ namespace MalMaalayak.BL
 
             return coupleList;
 
+        }
+
+        public IEnumerable<ClientDetailClassModel> GetMoreDetail()
+        {
+
+
+            return null;
         }
 
 

@@ -167,6 +167,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BL\CoupleBL.cs" />
+    <Compile Include="BL\ManagePersonBL.cs" />
     <Compile Include="Cast.cs">
       <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>
@@ -175,6 +176,7 @@
     </Compile>
     <Compile Include="Controllers\CoupleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagePersonController.cs" />
     <Compile Include="Gender.cs">
       <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>
@@ -326,6 +328,8 @@
     <Content Include="scss\style.scss" />
     <Content Include="Views\Home\Single.cshtml" />
     <Content Include="Views\Couple\GetCouple.cshtml" />
+    <Content Include="Views\Couple\GetMoreDetails.cshtml" />
+    <Content Include="Views\ManagePerson\PersonList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
