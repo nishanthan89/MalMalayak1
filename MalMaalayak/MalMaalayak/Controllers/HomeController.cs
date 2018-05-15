@@ -5,21 +5,31 @@ using System.Web;
 using System.Web.Mvc;
 using MalMaalayak.Models;
 using PagedList;
+using MalMaalayak.BL;
 
 namespace MalMaalayak.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        CoupleBL coupleBL = new CoupleBL();
+        public IList<ClientDetailClassModel> coupleList = new List<ClientDetailClassModel>();
+        public ActionResult Index(int? page = 1)
         {
-            return View(this.GetClientDetail(1));
+            //return View(this.GetClientDetail(1));
+            int pageSize = 10;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            var allDetails = coupleBL.GetAllDetails().OrderBy
+                                (m => m.StarName).ToPagedList(pageIndex, pageSize);
+
+            return View(allDetails);
         }
 
-        [HttpPost]
-        public ActionResult Index(int currentPageIndex)
-        {
-            return View(this.GetClientDetail(currentPageIndex));
-        }
+        //[HttpPost]
+        //public ActionResult Index(int currentPageIndex)
+        //{
+        //   // return View(this.GetClientDetail(currentPageIndex));
+        //}
 
         public ActionResult About()
         {
@@ -33,30 +43,6 @@ namespace MalMaalayak.Controllers
             //ViewBag.Message = "Your contact page.";
 
             return View();
-        }
-
-
-        private ClientDetailClassModel GetClientDetail(int currentPage) {
-            int maxRows = 16;
-            ClientDetailClassModel clientObj = new ClientDetailClassModel();
-
-            using (MalMalayakDbEntities2 dbEntity = new MalMalayakDbEntities2()) {
-                //ClientDetailClassModel clientObj = new ClientDetailClassModel();
-                clientObj.ClientList= (from clint in dbEntity.ClientDetails
-                                       select clint)
-                        .OrderBy(clint => clint.Id)
-                        .Skip((currentPage - 1) * maxRows)
-                        .Take(maxRows).ToList();
-
-                //this is for paging
-                double pageCount = (double)((decimal)dbEntity.ClientDetails.Count() / Convert.ToDecimal(maxRows));
-                clientObj.PageCount = (int)Math.Ceiling(pageCount);
-
-                clientObj.CurrentPageIndex = currentPage;
-                return clientObj;
-
-            }
-
         }
     }
 }

@@ -25,7 +25,7 @@
                 <div class="probootstrap-main-site-logo"><a href="index.html">Aside</a></div>
             </div>
 
-            <div>
+            <div class="row">
 
                 @foreach (var coupleValue in Model)
                 {
@@ -42,9 +42,10 @@
                                 <p class="card-text" style="line-height:10px">@coupleValue.Job</p>
                                 <p class="card-text" style="line-height:10px">@coupleValue.GenderType</p>
                                 <p class="card-text" style="line-height:10px">@coupleValue.CastName</p>
-                               
-                                <a href="@Url.Action("GetMoreDetails", "Couple")" class="btn btn-primary">More Detail</a>
-                            </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("GetMoreDetails", "Couple")" class="btn btn-primary">More</a>
+                                </div>
+                           </div>
                         </div>
                     </div>
 

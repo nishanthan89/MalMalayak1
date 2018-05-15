@@ -51,6 +51,8 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Mal
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\MalMaalayak.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\MalMaalayak.pdb
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Antlr3.Runtime.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.SqlServer.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -61,6 +63,8 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Mic
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Newtonsoft.Json.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.Mvc.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\System.Net.Http.Formatting.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\System.Web.Helpers.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\System.Web.Http.dll
@@ -72,7 +76,11 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Sys
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\System.Web.WebPages.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\System.Web.WebPages.Razor.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\WebGrease.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.xml
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.SqlServer.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.xml
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.Mvc.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\System.Web.Helpers.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\System.Web.Mvc.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\System.Web.Optimization.xml
@@ -93,12 +101,4 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\Mic
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\obj\Debug\MalMaalayak.csproj.CoreCompileInputs.cache
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\obj\Debug\MalMaalayak.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\obj\Debug\MalMaalayak.pdb
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.dll
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.SqlServer.dll
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.xml
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\EntityFramework.SqlServer.xml
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.dll
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.Mvc.dll
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.xml
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\bin\PagedList.Mvc.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak\obj\Debug\MalMaalayak.csprojResolveAssemblyReference.cache

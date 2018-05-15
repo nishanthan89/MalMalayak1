@@ -12,7 +12,34 @@ namespace MalMaalayak.BL
     public class CoupleBL
     {
         MalMalayakDbEntities2 dbEntity = new MalMalayakDbEntities2();
-        
+
+
+        public IEnumerable<ClientDetailClassModel> GetAllDetails()
+        {
+
+            //retrive data as list
+            var coList = (from cpl in dbEntity.ClientDetails
+
+                              join gd in dbEntity.Genders on cpl.GenderId equals gd.GenderId
+                              join cst in dbEntity.Casts on cpl.CapptId equals cst.CastId
+                              join str in dbEntity.Stars on cpl.StarId equals str.StarId
+                             
+
+                              select new ClientDetailClassModel()
+                              {
+
+                                  CastName = cst.CastName,
+                                  Job = cpl.Job,
+                                  StarName = str.StarName,
+                                  GenderType = gd.GenderType
+
+                              }).ToList();
+
+
+            return coList;
+
+        }
+
 
         public IEnumerable<ClientDetailClassModel> GetCouple()
         {
