@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewBag.Title = "CoupleRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+<!------ Include the above in your HEAD tag ---------->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">
+
+                        <!-- form user info -->
+                        <div class="card card-outline-secondary">
+                            <div class="card-header">
+                                <h3 class="mb-0">User Information</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" role="form" autocomplete="off">
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="Nishanthan">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Gender</label>
+                                        <div class="col-lg-9">
+                                            <select id="user_gender" class="form-control" size="0">
+                                                <option value="Male">Male</option>
+                                                <option value="FeMale">FeMale</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">NIC No</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Job</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Cast</label>
+                                        <div class="col-lg-9">
+                                            <select id="user_gender" class="form-control" size="0">
+                                                <option value="High">High</option>
+                                                <option value="Low">Low</option>
+                                                <option value="Mixed">Mixed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Star</label>
+                                        <div class="col-lg-9">
+                                            <select id="user_gender" class="form-control" size="0">
+                                                <option value="Anusam">Anusam</option>
+                                                <option value="Punarpoosam">Punarpoosam</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Lagna</label>
+                                        <div class="col-lg-9">
+                                            <select id="user_gender" class="form-control" size="0">
+                                                <option value="Virudsikam">Virudsikam</option>
+                                                <option value="Kadakam">Kadakam</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Studied</label>
+                                        <div class="col-lg-9">
+                                            <select id="user_gender" class="form-control" size="0">
+                                                <option value="AL">Advance Level</option>
+                                                <option value="OL">Ordinary Level</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Birth Of Date</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="date" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Birth Place</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Birth Time</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="time" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Father's Place</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Mother's Place</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Country</label>
+                                        <div class="col-lg-9">
+                                            <select id="user_gender" class="form-control" size="0">
+                                                <option value="Srilanka">Srilanka</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Phone Number(Home)</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="number" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Phone Number(Mobile)</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="number" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="email" value="email@gmail.com">
+                                        </div>
+                                    </div>
+
+                          
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                                        <div class="col-lg-9">
+                                            <input type="button" class="btn btn-primary" value="Save">
+                                            <input type="reset" class="btn btn-secondary" value="Clear">
+                                            
+                                        </div>
+                                        <div class="col-lg-offset-9">
+                                            <input type="button" class="btn btn-danger" value="Add Chart">
+                                        </div>
+                                           
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /form user info -->
+      
+
+    </main>
+</body>
+</html>
+

@@ -175,6 +175,7 @@
       <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CoupleController.cs" />
+    <Compile Include="Controllers\CoupleRegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagePersonController.cs" />
     <Compile Include="Gender.cs">
@@ -330,6 +331,7 @@
     <Content Include="Views\Couple\GetCouple.cshtml" />
     <Content Include="Views\Couple\GetMoreDetails.cshtml" />
     <Content Include="Views\ManagePerson\PersonList.cshtml" />
+    <Content Include="Views\CoupleRegister\CoupleRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

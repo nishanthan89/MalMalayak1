@@ -13,182 +13,91 @@
 
     <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">
     <!------ Include the above in your HEAD tag ---------->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="panel panel-default  panel--styled">
-                    <div class="panel-body">
-                        <div class="col-md-12 panelTop">
-                            <div class="col-md-4">
-                                <img class="img-responsive" src="http://placehold.it/350x350" alt="" />
-                            </div>
-                            <div class="col-md-8">
-                                <h2>Product Name</h2>
-                                <p>Lorem ipsum dolor sit amet, altera propriae iudicabit eos ne. Vel ut accusam tacimates, prima oratio ius ea. Et duo alii verterem principes, te quo putent melius fabulas, ei scripta eligendi appareat duo.</p>
-                            </div>
-                        </div>
+        <div class="container">
+            <div class="row">
+                <h2>Create your snippet's HTML, CSS and Javascript in the editor tabs</h2>
 
-                        <div class="col-md-12 panelBottom">
-                            <div class="col-md-4 text-center">
-                                <button class="btn btn-lg btn-add-to-cart"><span class="glyphicon glyphicon-shopping-cart"></span>Contact Us</button>
-                            </div>
-                            <div class="col-md-4 text-left">
-                                <h5>Price <span class="itemPrice">$24.99</span></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="stars">
-                                    <div id="stars" class="starrr"></div>
+
+                <div class="col-md-7 ">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">  <h4>User Profile</h4></div>
+                        <div class="panel-body">
+
+                            <div class="box box-info">
+
+                                <div class="box-body">
+                                    <div class="col-sm-6">
+                                        <div align="center">
+                                            <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
+
+                                            <input id="profile-image-upload" class="hidden" type="file">
+                                            <div style="color:#999;">click here to change profile image</div>
+                                            <!--Upload Image Js And Css-->
+
+
+
+
+
+
+
+                                        </div>
+
+                                        <br>
+
+                                        <!-- /input-group -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h4 style="color:#00b1b1;">Prasad Shankar Huddedar </h4></span>
+                                        <span><p>Aspirant</p></span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <hr style="margin:5px 0 5px 0;">
+
+
+                                    <div class="col-sm-5 col-xs-6 tital ">First Name:</div><div class="col-sm-7 col-xs-6 ">Prasad</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Middle Name:</div><div class="col-sm-7"> Shankar</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Last Name:</div><div class="col-sm-7"> Huddedar</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Date Of Joining:</div><div class="col-sm-7">15 Jun 2016</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Date Of Birth:</div><div class="col-sm-7">11 Jun 1998</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Place Of Birth:</div><div class="col-sm-7">Shirdi</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Nationality:</div><div class="col-sm-7">Indian</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Relition:</div><div class="col-sm-7">Hindu</div>
+
+                                    <!-- /.box-body -->
                                 </div>
+                                <!-- /.box -->
                             </div>
+
+
                         </div>
                     </div>
                 </div>
+                <script>
+                    $(function () {
+                        $('#profile-image1').on('click', function () {
+                            $('#profile-image-upload').click();
+                        });
+                    });
+                </script>
+
+
             </div>
         </div>
-    </div>
+
    </main>>
   </body>
 </html>
-
-<script>
-        // Starrr plugin (https://github.com/dobtco/starrr)
-        var __slice = [].slice;
-        (function ($, window) {
-            var Starrr;
-
-            Starrr = (function () {
-                Starrr.prototype.defaults = {
-                    rating: void 0,
-                    numStars: 5,
-                    change: function (e, value) { }
-                };
-
-                function Starrr($el, options) {
-                    var i, _, _ref,
-                        _this = this;
-
-                    this.options = $.extend({}, this.defaults, options);
-                    this.$el = $el;
-                    _ref = this.defaults;
-                    for (i in _ref) {
-                        _ = _ref[i];
-                        if (this.$el.data(i) != null) {
-                            this.options[i] = this.$el.data(i);
-                        }
-                    }
-                    this.createStars();
-                    this.syncRating();
-                    this.$el.on('mouseover.starrr', 'span', function (e) {
-                        return _this.syncRating(_this.$el.find('span').index(e.currentTarget) + 1);
-                    });
-                    this.$el.on('mouseout.starrr', function () {
-                        return _this.syncRating();
-                    });
-                    this.$el.on('click.starrr', 'span', function (e) {
-                        return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
-                    });
-                    this.$el.on('starrr:change', this.options.change);
-                }
-
-                Starrr.prototype.createStars = function () {
-                    var _i, _ref, _results;
-
-                    _results = [];
-                    for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {
-                        _results.push(this.$el.append("<span class='glyphicon .glyphicon-star-empty'></span>"));
-                    }
-                    return _results;
-                };
-
-                Starrr.prototype.setRating = function (rating) {
-                    if (this.options.rating === rating) {
-                        rating = void 0;
-                    }
-                    this.options.rating = rating;
-                    this.syncRating();
-                    return this.$el.trigger('starrr:change', rating);
-                };
-
-                Starrr.prototype.syncRating = function (rating) {
-                    var i, _i, _j, _ref;
-
-                    rating || (rating = this.options.rating);
-                    if (rating) {
-                        for (i = _i = 0, _ref = rating - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
-                            this.$el.find('span').eq(i).removeClass('glyphicon-star-empty').addClass('glyphicon-star');
-                        }
-                    }
-                    if (rating && rating < 5) {
-                        for (i = _j = rating; rating <= 4 ? _j <= 4 : _j >= 4; i = rating <= 4 ? ++_j : --_j) {
-                            this.$el.find('span').eq(i).removeClass('glyphicon-star').addClass('glyphicon-star-empty');
-                        }
-                    }
-                    if (!rating) {
-                        return this.$el.find('span').removeClass('glyphicon-star').addClass('glyphicon-star-empty');
-                    }
-                };
-
-                return Starrr;
-
-            })();
-            return $.fn.extend({
-                starrr: function () {
-                    var args, option;
-
-                    option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-                    return this.each(function () {
-                        var data;
-
-                        data = $(this).data('star-rating');
-                        if (!data) {
-                            $(this).data('star-rating', (data = new Starrr($(this), option)));
-                        }
-                        if (typeof option === 'string') {
-                            return data[option].apply(data, args);
-                        }
-                    });
-                }
-            });
-        })(window.jQuery, window);
-
-        $(function () {
-            return $(".starrr").starrr();
-        });
-
-        $(document).ready(function () {
-
-            $('#stars').on('starrr:change', function (e, value) {
-                $('#count').html(value);
-            });
-
-            $('#stars-existing').on('starrr:change', function (e, value) {
-                $('#count-existing').html(value);
-            });
-        });
-    </script>
-
-
-
-
-
-        @*<html lang="en">
-            <body>
-
-                <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">
-                    <div>
-                        <p>
-                            Here have to display more details as table / grid view
-                        </p>
-                    </div>
-                </main>
-
-
-                <script type="text/javascript">
-                    function PagerClick(index) {
-                        document.getElementById("hfCurrentPageIndex").value = index;
-                        document.forms[0].submit();
-                    }
-                </script>
-
-            </body>
-            </html>*@
