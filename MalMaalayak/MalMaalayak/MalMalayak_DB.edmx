@@ -4,7 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MalMalayakDbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MalMalayakDbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BirthDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="BirthPlace" Type="varchar" MaxLength="50" />
+          <Property Name="BirthTime" Type="varchar" MaxLength="50" />
+          <Property Name="FartherPlace" Type="varchar" MaxLength="50" />
+          <Property Name="MotherPlace" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Cast">
           <Key>
             <PropertyRef Name="CastId" />
@@ -15,16 +27,32 @@
         </EntityType>
         <EntityType Name="ClientDetail">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="NIC" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NIC" Type="varchar" MaxLength="50" />
+          <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" />
           <Property Name="LastName" Type="varchar" MaxLength="50" />
           <Property Name="GenderId" Type="int" />
-          <Property Name="StarId" Type="int" />
-          <Property Name="CapptId" Type="int" />
+          <Property Name="CastId" Type="int" />
           <Property Name="Job" Type="varchar" MaxLength="50" />
+          <Property Name="Religion" Type="varchar" MaxLength="30" />
+          <Property Name="Height" Type="varchar" MaxLength="50" />
+          <Property Name="Qualification" Type="varchar" MaxLength="50" />
+          <Property Name="Expectation" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ContactDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="Residence" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneHome" Type="int" />
+          <Property Name="PhoneMobile" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -32,6 +60,25 @@
           </Key>
           <Property Name="GenderId" Type="int" Nullable="false" />
           <Property Name="GenderType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JothidaDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lagna" Type="varchar" MaxLength="50" />
+          <Property Name="Star" Type="varchar" MaxLength="30" />
+          <Property Name="Paavam" Type="varchar" MaxLength="50" />
+          <Property Name="LagnaChart" Type="image" />
+          <Property Name="NavamsaChart" Type="image" />
+        </EntityType>
+        <EntityType Name="Lagna">
+          <Key>
+            <PropertyRef Name="LagnaId" />
+          </Key>
+          <Property Name="LagnaType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LagnaId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Star">
           <Key>
@@ -50,6 +97,18 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <Association Name="FK_BirthDetail_ClientDetail">
+          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="1" />
+          <End Role="BirthDetail" Type="Self.BirthDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientDetail">
+              <PropertyRef Name="NIC" />
+            </Principal>
+            <Dependent Role="BirthDetail">
+              <PropertyRef Name="NIC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ClientDetail_Cast">
           <End Role="Cast" Type="Self.Cast" Multiplicity="0..1" />
           <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
@@ -58,7 +117,7 @@
               <PropertyRef Name="CastId" />
             </Principal>
             <Dependent Role="ClientDetail">
-              <PropertyRef Name="CapptId" />
+              <PropertyRef Name="CastId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -74,15 +133,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClientDetail_Star">
-          <End Role="Star" Type="Self.Star" Multiplicity="0..1" />
-          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
+        <Association Name="FK_ContactDetail_ClientDetail">
+          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="1" />
+          <End Role="ContactDetail" Type="Self.ContactDetail" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Star">
-              <PropertyRef Name="StarId" />
+            <Principal Role="ClientDetail">
+              <PropertyRef Name="NIC" />
             </Principal>
-            <Dependent Role="ClientDetail">
-              <PropertyRef Name="StarId" />
+            <Dependent Role="ContactDetail">
+              <PropertyRef Name="NIC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JothidaDetail_ClientDetail">
+          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="1" />
+          <End Role="JothidaDetail" Type="Self.JothidaDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientDetail">
+              <PropertyRef Name="NIC" />
+            </Principal>
+            <Dependent Role="JothidaDetail">
+              <PropertyRef Name="NIC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -118,11 +189,19 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MalMalayakDbModel1StoreContainer">
+          <EntitySet Name="BirthDetail" EntityType="Self.BirthDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cast" EntityType="Self.Cast" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientDetail" EntityType="Self.ClientDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactDetail" EntityType="Self.ContactDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JothidaDetail" EntityType="Self.JothidaDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lagna" EntityType="Self.Lagna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Star" EntityType="Self.Star" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BirthDetail_ClientDetail" Association="Self.FK_BirthDetail_ClientDetail">
+            <End Role="ClientDetail" EntitySet="ClientDetail" />
+            <End Role="BirthDetail" EntitySet="BirthDetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_ClientDetail_Cast" Association="Self.FK_ClientDetail_Cast">
             <End Role="Cast" EntitySet="Cast" />
             <End Role="ClientDetail" EntitySet="ClientDetail" />
@@ -131,121 +210,20 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="ClientDetail" EntitySet="ClientDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClientDetail_Star" Association="Self.FK_ClientDetail_Star">
-            <End Role="Star" EntitySet="Star" />
+          <AssociationSet Name="FK_ContactDetail_ClientDetail" Association="Self.FK_ContactDetail_ClientDetail">
             <End Role="ClientDetail" EntitySet="ClientDetail" />
+            <End Role="ContactDetail" EntitySet="ContactDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JothidaDetail_ClientDetail" Association="Self.FK_JothidaDetail_ClientDetail">
+            <End Role="ClientDetail" EntitySet="ClientDetail" />
+            <End Role="JothidaDetail" EntitySet="JothidaDetail" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MalMalayakDbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Cast">
-          <Key>
-            <PropertyRef Name="CastId" />
-          </Key>
-          <Property Name="CastId" Type="Int32" Nullable="false" />
-          <Property Name="CastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ClientDetails" Relationship="Self.FK_ClientDetail_Cast" FromRole="Cast" ToRole="ClientDetail" />
-        </EntityType>
-        <EntityType Name="ClientDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GenderId" Type="Int32" />
-          <Property Name="StarId" Type="Int32" />
-          <Property Name="CapptId" Type="Int32" />
-          <Property Name="Job" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Cast" Relationship="Self.FK_ClientDetail_Cast" FromRole="ClientDetail" ToRole="Cast" />
-          <NavigationProperty Name="Gender" Relationship="Self.FK_ClientDetail_Gender" FromRole="ClientDetail" ToRole="Gender" />
-          <NavigationProperty Name="Star" Relationship="Self.FK_ClientDetail_Star" FromRole="ClientDetail" ToRole="Star" />
-        </EntityType>
-        <EntityType Name="Gender">
-          <Key>
-            <PropertyRef Name="GenderId" />
-          </Key>
-          <Property Name="GenderId" Type="Int32" Nullable="false" />
-          <Property Name="GenderType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ClientDetails" Relationship="Self.FK_ClientDetail_Gender" FromRole="Gender" ToRole="ClientDetail" />
-        </EntityType>
-        <EntityType Name="Star">
-          <Key>
-            <PropertyRef Name="StarId" />
-          </Key>
-          <Property Name="StarId" Type="Int32" Nullable="false" />
-          <Property Name="StarName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ClientDetails" Relationship="Self.FK_ClientDetail_Star" FromRole="Star" ToRole="ClientDetail" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <Association Name="FK_ClientDetail_Cast">
-          <End Role="Cast" Type="Self.Cast" Multiplicity="0..1" />
-          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cast">
-              <PropertyRef Name="CastId" />
-            </Principal>
-            <Dependent Role="ClientDetail">
-              <PropertyRef Name="CapptId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientDetail_Gender">
-          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
-          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Gender">
-              <PropertyRef Name="GenderId" />
-            </Principal>
-            <Dependent Role="ClientDetail">
-              <PropertyRef Name="GenderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientDetail_Star">
-          <End Role="Star" Type="Self.Star" Multiplicity="0..1" />
-          <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Star">
-              <PropertyRef Name="StarId" />
-            </Principal>
-            <Dependent Role="ClientDetail">
-              <PropertyRef Name="StarId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="MalMalayakDbEntities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Casts" EntityType="Self.Cast" />
-          <EntitySet Name="ClientDetails" EntityType="Self.ClientDetail" />
-          <EntitySet Name="Genders" EntityType="Self.Gender" />
-          <EntitySet Name="Stars" EntityType="Self.Star" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_ClientDetail_Cast" Association="Self.FK_ClientDetail_Cast">
-            <End Role="Cast" EntitySet="Casts" />
-            <End Role="ClientDetail" EntitySet="ClientDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientDetail_Gender" Association="Self.FK_ClientDetail_Gender">
-            <End Role="Gender" EntitySet="Genders" />
-            <End Role="ClientDetail" EntitySet="ClientDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientDetail_Star" Association="Self.FK_ClientDetail_Star">
-            <End Role="Star" EntitySet="Stars" />
-            <End Role="ClientDetail" EntitySet="ClientDetails" />
-          </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -276,6 +254,35 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="BirthDetails" EntityType="MalMalayakDbModel1.BirthDetail" />
+          <EntitySet Name="Casts" EntityType="MalMalayakDbModel1.Cast" />
+          <EntitySet Name="ClientDetails" EntityType="MalMalayakDbModel1.ClientDetail" />
+          <EntitySet Name="ContactDetails" EntityType="MalMalayakDbModel1.ContactDetail" />
+          <EntitySet Name="Genders" EntityType="MalMalayakDbModel1.Gender" />
+          <EntitySet Name="JothidaDetails" EntityType="MalMalayakDbModel1.JothidaDetail" />
+          <EntitySet Name="Lagnas" EntityType="MalMalayakDbModel1.Lagna" />
+          <EntitySet Name="Stars" EntityType="MalMalayakDbModel1.Star" />
+          <EntitySet Name="sysdiagrams" EntityType="MalMalayakDbModel1.sysdiagram" />
+          <AssociationSet Name="FK_BirthDetail_ClientDetail" Association="MalMalayakDbModel1.FK_BirthDetail_ClientDetail">
+            <End Role="ClientDetail" EntitySet="ClientDetails" />
+            <End Role="BirthDetail" EntitySet="BirthDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientDetail_Cast" Association="MalMalayakDbModel1.FK_ClientDetail_Cast">
+            <End Role="Cast" EntitySet="Casts" />
+            <End Role="ClientDetail" EntitySet="ClientDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientDetail_Gender" Association="MalMalayakDbModel1.FK_ClientDetail_Gender">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="ClientDetail" EntitySet="ClientDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactDetail_ClientDetail" Association="MalMalayakDbModel1.FK_ContactDetail_ClientDetail">
+            <End Role="ClientDetail" EntitySet="ClientDetails" />
+            <End Role="ContactDetail" EntitySet="ContactDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JothidaDetail_ClientDetail" Association="MalMalayakDbModel1.FK_JothidaDetail_ClientDetail">
+            <End Role="ClientDetail" EntitySet="ClientDetails" />
+            <End Role="JothidaDetail" EntitySet="JothidaDetails" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -288,62 +295,174 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="BirthDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NIC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="BirthPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BirthTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FartherPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MotherPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClientDetail" Relationship="MalMalayakDbModel1.FK_BirthDetail_ClientDetail" FromRole="BirthDetail" ToRole="ClientDetail" />
+        </EntityType>
+        <EntityType Name="Cast">
+          <Key>
+            <PropertyRef Name="CastId" />
+          </Key>
+          <Property Name="CastId" Type="Int32" Nullable="false" />
+          <Property Name="CastName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClientDetails" Relationship="MalMalayakDbModel1.FK_ClientDetail_Cast" FromRole="Cast" ToRole="ClientDetail" />
+        </EntityType>
+        <EntityType Name="ClientDetail">
+          <Key>
+            <PropertyRef Name="NIC" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NIC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="CastId" Type="Int32" />
+          <Property Name="Job" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Expectation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BirthDetails" Relationship="MalMalayakDbModel1.FK_BirthDetail_ClientDetail" FromRole="ClientDetail" ToRole="BirthDetail" />
+          <NavigationProperty Name="Cast" Relationship="MalMalayakDbModel1.FK_ClientDetail_Cast" FromRole="ClientDetail" ToRole="Cast" />
+          <NavigationProperty Name="Gender" Relationship="MalMalayakDbModel1.FK_ClientDetail_Gender" FromRole="ClientDetail" ToRole="Gender" />
+          <NavigationProperty Name="ContactDetails" Relationship="MalMalayakDbModel1.FK_ContactDetail_ClientDetail" FromRole="ClientDetail" ToRole="ContactDetail" />
+          <NavigationProperty Name="JothidaDetails" Relationship="MalMalayakDbModel1.FK_JothidaDetail_ClientDetail" FromRole="ClientDetail" ToRole="JothidaDetail" />
+        </EntityType>
+        <EntityType Name="ContactDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NIC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Residence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneHome" Type="Int32" />
+          <Property Name="PhoneMobile" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClientDetail" Relationship="MalMalayakDbModel1.FK_ContactDetail_ClientDetail" FromRole="ContactDetail" ToRole="ClientDetail" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="GenderType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClientDetails" Relationship="MalMalayakDbModel1.FK_ClientDetail_Gender" FromRole="Gender" ToRole="ClientDetail" />
+        </EntityType>
+        <EntityType Name="JothidaDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NIC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lagna" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Star" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Paavam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LagnaChart" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="NavamsaChart" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="ClientDetail" Relationship="MalMalayakDbModel1.FK_JothidaDetail_ClientDetail" FromRole="JothidaDetail" ToRole="ClientDetail" />
+        </EntityType>
+        <EntityType Name="Lagna">
+          <Key>
+            <PropertyRef Name="LagnaId" />
+          </Key>
+          <Property Name="LagnaType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LagnaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Star">
+          <Key>
+            <PropertyRef Name="StarId" />
+          </Key>
+          <Property Name="StarId" Type="Int32" Nullable="false" />
+          <Property Name="StarName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_BirthDetail_ClientDetail">
+          <End Type="MalMalayakDbModel1.ClientDetail" Role="ClientDetail" Multiplicity="1" />
+          <End Type="MalMalayakDbModel1.BirthDetail" Role="BirthDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientDetail">
+              <PropertyRef Name="NIC" />
+            </Principal>
+            <Dependent Role="BirthDetail">
+              <PropertyRef Name="NIC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientDetail_Cast">
+          <End Type="MalMalayakDbModel1.Cast" Role="Cast" Multiplicity="0..1" />
+          <End Type="MalMalayakDbModel1.ClientDetail" Role="ClientDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cast">
+              <PropertyRef Name="CastId" />
+            </Principal>
+            <Dependent Role="ClientDetail">
+              <PropertyRef Name="CastId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientDetail_Gender">
+          <End Type="MalMalayakDbModel1.Gender" Role="Gender" Multiplicity="0..1" />
+          <End Type="MalMalayakDbModel1.ClientDetail" Role="ClientDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="ClientDetail">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactDetail_ClientDetail">
+          <End Type="MalMalayakDbModel1.ClientDetail" Role="ClientDetail" Multiplicity="1" />
+          <End Type="MalMalayakDbModel1.ContactDetail" Role="ContactDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientDetail">
+              <PropertyRef Name="NIC" />
+            </Principal>
+            <Dependent Role="ContactDetail">
+              <PropertyRef Name="NIC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JothidaDetail_ClientDetail">
+          <End Type="MalMalayakDbModel1.ClientDetail" Role="ClientDetail" Multiplicity="1" />
+          <End Type="MalMalayakDbModel1.JothidaDetail" Role="JothidaDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientDetail">
+              <PropertyRef Name="NIC" />
+            </Principal>
+            <Dependent Role="JothidaDetail">
+              <PropertyRef Name="NIC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MalMalayakDbModel1StoreContainer" CdmEntityContainer="MalMalayakDbEntities2">
-          <EntitySetMapping Name="Casts">
-            <EntityTypeMapping TypeName="MalMalayakDbModel1.Cast">
-              <MappingFragment StoreEntitySet="Cast">
-                <ScalarProperty Name="CastId" ColumnName="CastId" />
-                <ScalarProperty Name="CastName" ColumnName="CastName" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ClientDetails">
-            <EntityTypeMapping TypeName="MalMalayakDbModel1.ClientDetail">
-              <MappingFragment StoreEntitySet="ClientDetail">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="NIC" ColumnName="NIC" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
-                <ScalarProperty Name="StarId" ColumnName="StarId" />
-                <ScalarProperty Name="CapptId" ColumnName="CapptId" />
-                <ScalarProperty Name="Job" ColumnName="Job" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Genders">
-            <EntityTypeMapping TypeName="MalMalayakDbModel1.Gender">
-              <MappingFragment StoreEntitySet="Gender">
-                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
-                <ScalarProperty Name="GenderType" ColumnName="GenderType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Stars">
-            <EntityTypeMapping TypeName="MalMalayakDbModel1.Star">
-              <MappingFragment StoreEntitySet="Star">
-                <ScalarProperty Name="StarId" ColumnName="StarId" />
-                <ScalarProperty Name="StarName" ColumnName="StarName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="MalMalayakDbModel1.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MalMalayakDbModel1.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MalMalayakDbModel1.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="MalMalayakDbModel1.Store.sp_dropdiagram" />
@@ -368,6 +487,107 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MalMalayakDbModel1.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MalMalayakDbModel1.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="BirthDetails">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.BirthDetail">
+              <MappingFragment StoreEntitySet="BirthDetail">
+                <ScalarProperty Name="MotherPlace" ColumnName="MotherPlace" />
+                <ScalarProperty Name="FartherPlace" ColumnName="FartherPlace" />
+                <ScalarProperty Name="BirthTime" ColumnName="BirthTime" />
+                <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Casts">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.Cast">
+              <MappingFragment StoreEntitySet="Cast">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CastName" ColumnName="CastName" />
+                <ScalarProperty Name="CastId" ColumnName="CastId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientDetails">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.ClientDetail">
+              <MappingFragment StoreEntitySet="ClientDetail">
+                <ScalarProperty Name="Expectation" ColumnName="Expectation" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="CastId" ColumnName="CastId" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactDetails">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.ContactDetail">
+              <MappingFragment StoreEntitySet="ContactDetail">
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneMobile" ColumnName="PhoneMobile" />
+                <ScalarProperty Name="PhoneHome" ColumnName="PhoneHome" />
+                <ScalarProperty Name="Residence" ColumnName="Residence" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderType" ColumnName="GenderType" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JothidaDetails">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.JothidaDetail">
+              <MappingFragment StoreEntitySet="JothidaDetail">
+                <ScalarProperty Name="NavamsaChart" ColumnName="NavamsaChart" />
+                <ScalarProperty Name="LagnaChart" ColumnName="LagnaChart" />
+                <ScalarProperty Name="Paavam" ColumnName="Paavam" />
+                <ScalarProperty Name="Star" ColumnName="Star" />
+                <ScalarProperty Name="Lagna" ColumnName="Lagna" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lagnas">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.Lagna">
+              <MappingFragment StoreEntitySet="Lagna">
+                <ScalarProperty Name="LagnaId" ColumnName="LagnaId" />
+                <ScalarProperty Name="LagnaType" ColumnName="LagnaType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stars">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.Star">
+              <MappingFragment StoreEntitySet="Star">
+                <ScalarProperty Name="StarName" ColumnName="StarName" />
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

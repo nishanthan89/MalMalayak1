@@ -17,7 +17,7 @@
     <AssemblyName>MalMaalayak</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -166,6 +166,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BirthDetail.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="BL\CoupleBL.cs" />
     <Compile Include="BL\ManagePersonBL.cs" />
     <Compile Include="Cast.cs">
@@ -174,6 +177,11 @@
     <Compile Include="ClientDetail.cs">
       <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Constants\ConstantDetail.cs" />
+    <Compile Include="ContactDetail.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\CoupleController.cs" />
     <Compile Include="Controllers\CoupleRegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -183,6 +191,12 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="JothidaDetail.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lagna.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="MalMalayak_DB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -200,6 +214,7 @@
       <DependentUpon>MalMalayak_DB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ClientDetailClassModel.cs" />
+    <Compile Include="Models\CoupleRegisterModel.cs" />
     <Compile Include="Models\PersonViewDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
@@ -214,6 +229,7 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CoupleRegisterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -335,7 +351,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\" />
     <Folder Include="DAL\" />
+    <Folder Include="Views\Common\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -371,7 +389,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63870</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63870/</IISUrl>
+          <IISUrl>http://localhost/MalMaalayak</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -5,14 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="224f7bec947f45afb38c47c88a60ab42" Name="Diagram1">
-        <EntityTypeShape EntityType="MalMalayakDbModel1.Cast" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MalMalayakDbModel1.ClientDetail" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MalMalayakDbModel1.Gender" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MalMalayakDbModel1.Star" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MalMalayakDbModel1.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="MalMalayakDbModel1.FK_ClientDetail_Cast" ManuallyRouted="false" />
-        <AssociationConnector Association="MalMalayakDbModel1.FK_ClientDetail_Gender" ManuallyRouted="false" />
-        <AssociationConnector Association="MalMalayakDbModel1.FK_ClientDetail_Star" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MalMalayakDbModel1.BirthDetail" Width="1.5" PointX="5.25" PointY="8.125" />
+        <EntityTypeShape EntityType="MalMalayakDbModel1.Cast" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="MalMalayakDbModel1.ClientDetail" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="MalMalayakDbModel1.ContactDetail" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="MalMalayakDbModel1.Gender" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="MalMalayakDbModel1.JothidaDetail" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="MalMalayakDbModel1.Lagna" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MalMalayakDbModel1.Star" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MalMalayakDbModel1.sysdiagram" Width="1.5" PointX="7.75" PointY="6.75" />
+        <AssociationConnector Association="MalMalayakDbModel1.FK_BirthDetail_ClientDetail" />
+        <AssociationConnector Association="MalMalayakDbModel1.FK_ClientDetail_Cast" />
+        <AssociationConnector Association="MalMalayakDbModel1.FK_ClientDetail_Gender" />
+        <AssociationConnector Association="MalMalayakDbModel1.FK_ContactDetail_ClientDetail" />
+        <AssociationConnector Association="MalMalayakDbModel1.FK_JothidaDetail_ClientDetail" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

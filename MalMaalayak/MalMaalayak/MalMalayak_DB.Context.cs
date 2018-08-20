@@ -27,9 +27,13 @@ namespace MalMaalayak
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BirthDetail> BirthDetails { get; set; }
         public virtual DbSet<Cast> Casts { get; set; }
         public virtual DbSet<ClientDetail> ClientDetails { get; set; }
+        public virtual DbSet<ContactDetail> ContactDetails { get; set; }
         public virtual DbSet<Gender> Genders { get; set; }
+        public virtual DbSet<JothidaDetail> JothidaDetails { get; set; }
+        public virtual DbSet<Lagna> Lagnas { get; set; }
         public virtual DbSet<Star> Stars { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     

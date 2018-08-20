@@ -1,13 +1,10 @@
-﻿
+﻿@model MalMaalayak.Models.CoupleRegisterModel
 @{
     ViewBag.Title = "CoupleRegister";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
-<!------ Include the above in your HEAD tag ---------->
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 
@@ -15,6 +12,9 @@
 <html lang="en">
 <body>
     <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">
+
+@using (Html.BeginForm("SaveCoupleDetail", "CoupleRegister", FormMethod.Post))
+{
 
                         <!-- form user info -->
                         <div class="card card-outline-secondary">
@@ -24,143 +24,199 @@
                             <div class="card-body">
                                 <form class="form" role="form" autocomplete="off">
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.FirstName)
+                                        </div>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="Nishanthan">
+                                            @Html.TextBoxFor(model => model.FirstName)
+                                        </div>
+                                        </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.LastName)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.LastName)
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.GenderType)
+                                        </div>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="">
+                                            @Html.EnumDropDownListFor(model => model.GenderType)
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Gender</label>
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Religion)
+                                        </div>
                                         <div class="col-lg-9">
-                                            <select id="user_gender" class="form-control" size="0">
-                                                <option value="Male">Male</option>
-                                                <option value="FeMale">FeMale</option>
-                                                <option value="Other">Other</option>
-                                            </select>
+                                            @Html.EnumDropDownListFor(model => model.Religion)
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">NIC No</label>
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.NIC)
+                                        </div>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="">
+                                            @Html.TextBoxFor(model => model.NIC)
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Job</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Job)
                                         </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Cast</label>
                                         <div class="col-lg-9">
-                                            <select id="user_gender" class="form-control" size="0">
-                                                <option value="High">High</option>
-                                                <option value="Low">Low</option>
-                                                <option value="Mixed">Mixed</option>
-                                            </select>
+                                            @Html.TextBoxFor(model => model.Job)
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Star</label>
-                                        <div class="col-lg-9">
-                                            <select id="user_gender" class="form-control" size="0">
-                                                <option value="Anusam">Anusam</option>
-                                                <option value="Punarpoosam">Punarpoosam</option>
-                                                <option value="Other">Other</option>
-                                            </select>
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Height)
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Lagna</label>
                                         <div class="col-lg-9">
-                                            <select id="user_gender" class="form-control" size="0">
-                                                <option value="Virudsikam">Virudsikam</option>
-                                                <option value="Kadakam">Kadakam</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Studied</label>
-                                        <div class="col-lg-9">
-                                            <select id="user_gender" class="form-control" size="0">
-                                                <option value="AL">Advance Level</option>
-                                                <option value="OL">Ordinary Level</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Birth Of Date</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="date" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Birth Place</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Birth Time</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="time" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Father's Place</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Mother's Place</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Country</label>
-                                        <div class="col-lg-9">
-                                            <select id="user_gender" class="form-control" size="0">
-                                                <option value="Srilanka">Srilanka</option>
-                                                <option value="Canada">Canada</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Phone Number(Home)</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="number" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Phone Number(Mobile)</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="number" value="">
+                                            @Html.TextBoxFor(model => model.Height)
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.CasteName)
+                                        </div>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="email" value="email@gmail.com">
+                                            @Html.EnumDropDownListFor(model => model.CasteName)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.StarName)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.EnumDropDownListFor(model => model.StarName)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Lagna)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.EnumDropDownListFor(model => model.Lagna)
+                                      
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Qualification)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.EnumDropDownListFor(model => model.Qualification)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.BirthOfDate)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.BirthOfDate)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.BirthPlace)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.BirthPlace)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.BirthTime)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.BirthTime)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Paavam)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.Paavam)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.FartherPlace)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.FartherPlace)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.MotherPlace)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.MotherPlace)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Address)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.Address)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Residence)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.Residence)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Country)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.EnumDropDownListFor(model => model.Country)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.HomePhone)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.HomePhone)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.MobileNo)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.MobileNo)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </div>
+                                        <div class="col-lg-9">
+                                           @Html.TextBoxFor(model => model.Email)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-3">
+                                            @Html.DisplayNameFor(model => model.Expectation)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.EnumDropDownListFor(model => model.Expectation)
                                         </div>
                                     </div>
 
@@ -169,7 +225,9 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
-                                            <input type="button" class="btn btn-primary" value="Save">
+                                            @*<button type="button" class="btn btn-primary" id="btnAdd" onclick="return SaveCoupleDetail();">Save</button>*@ 
+                                            <input type="submit" class="btn btn-primary" value="Save">
+                                            @*<a href="@Url.Action("SaveCoupleDetail", "CoupleRegister")" class="btn btn-primary">Save</a>*@
                                             <input type="reset" class="btn btn-secondary" value="Clear">
                                             
                                         </div>
@@ -182,9 +240,44 @@
                             </div>
                         </div>
                         <!-- /form user info -->
-      
 
+}
     </main>
 </body>
 </html>
+
+
+@*<script>
+
+    $(document).ready(function () {
+
+            $("#Allocation").click(function () {
+
+            var jall = $("#jball").val();
+            var sdid = $('#listbox option:selected').val();
+
+            $.ajax({
+                url: '@Url.Action("SaveNewAllocation")',
+                dataType: "json",
+                method: 'post',
+                data: {
+                    NewjobAllocationID: jall,
+                    ShiftScheduleID: sdid
+
+                },
+                success: function (result) {
+                    if (result.url) {
+                        window.location.href = result.url;
+                    }
+
+
+
+                }
+            });
+        });
+
+    });
+
+
+</script>*@
 

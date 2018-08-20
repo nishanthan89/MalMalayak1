@@ -14,19 +14,33 @@ namespace MalMaalayak
     
     public partial class ClientDetail
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ClientDetail()
+        {
+            this.BirthDetails = new HashSet<BirthDetail>();
+            this.ContactDetails = new HashSet<ContactDetail>();
+            this.JothidaDetails = new HashSet<JothidaDetail>();
+        }
+    
         public int Id { get; set; }
         public string NIC { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Nullable<int> GenderId { get; set; }
-        public Nullable<int> StarId { get; set; }
-        public Nullable<int> CapptId { get; set; }
+        public Nullable<int> CastId { get; set; }
         public string Job { get; set; }
+        public string Religion { get; set; }
+        public string Height { get; set; }
+        public string Qualification { get; set; }
+        public string Expectation { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BirthDetail> BirthDetails { get; set; }
         public virtual Cast Cast { get; set; }
         public virtual Gender Gender { get; set; }
-        public virtual Star Star { get; set; }
-
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContactDetail> ContactDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<JothidaDetail> JothidaDetails { get; set; }
     }
 }

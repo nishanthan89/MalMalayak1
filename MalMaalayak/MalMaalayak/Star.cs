@@ -14,16 +14,7 @@ namespace MalMaalayak
     
     public partial class Star
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Star()
-        {
-            this.ClientDetails = new HashSet<ClientDetail>();
-        }
-    
         public int StarId { get; set; }
         public string StarName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ClientDetail> ClientDetails { get; set; }
     }
 }

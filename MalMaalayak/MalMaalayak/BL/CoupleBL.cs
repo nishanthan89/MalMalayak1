@@ -21,8 +21,8 @@ namespace MalMaalayak.BL
             var coList = (from cpl in dbEntity.ClientDetails
 
                               join gd in dbEntity.Genders on cpl.GenderId equals gd.GenderId
-                              join cst in dbEntity.Casts on cpl.CapptId equals cst.CastId
-                              join str in dbEntity.Stars on cpl.StarId equals str.StarId
+                              join cst in dbEntity.Casts on cpl.CastId equals cst.CastId
+                              join str in dbEntity.Stars on cpl.CastId equals str.StarId
                              
 
                               select new ClientDetailClassModel()
@@ -48,8 +48,8 @@ namespace MalMaalayak.BL
             var coupleList = (from cpl in dbEntity.ClientDetails
 
                               join gd in dbEntity.Genders on cpl.GenderId equals gd.GenderId
-                              join cst in dbEntity.Casts on cpl.CapptId equals cst.CastId
-                              join str in dbEntity.Stars on cpl.StarId equals str.StarId
+                              join cst in dbEntity.Casts on cpl.CastId equals cst.CastId
+                              join str in dbEntity.Stars on cpl.CastId equals str.StarId
                               where gd.GenderType=="Male"
                               
                               select new ClientDetailClassModel()
@@ -80,8 +80,8 @@ namespace MalMaalayak.BL
             var coupleList = (from cpl in dbEntity.ClientDetails
 
                               join gd in dbEntity.Genders on cpl.GenderId equals gd.GenderId
-                              join cst in dbEntity.Casts on cpl.CapptId equals cst.CastId
-                              join str in dbEntity.Stars on cpl.StarId equals str.StarId
+                              join cst in dbEntity.Casts on cpl.CastId equals cst.CastId
+                              join str in dbEntity.Stars on cpl.CastId equals str.StarId
                               where gd.GenderType == "Female"
 
                               select new ClientDetailClassModel()
@@ -100,6 +100,13 @@ namespace MalMaalayak.BL
         }
 
         public IEnumerable<ClientDetailClassModel> GetMoreDetail()
+        {
+
+
+            return null;
+        }
+
+        public IEnumerable<ClientDetailClassModel> CoupleRegister(CoupleRegisterModel modelData)
         {
 
 
