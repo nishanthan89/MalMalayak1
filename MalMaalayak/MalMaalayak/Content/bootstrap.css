@@ -5636,14 +5636,16 @@ body.modal-open,
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
           transform: translate(0, 0);
+
 }
 
 .modal-dialog {
-  z-index: 1050;
+  /*z-index: 500;
   width: auto;
   padding: 10px;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: auto;*/
+
 }
 
 .modal-content {
@@ -5741,7 +5743,7 @@ body.modal-open,
 @media screen and (min-width: 768px) {
   .modal-dialog {
     right: auto;
-    left: 50%;
+   
     width: 600px;
     padding-top: 30px;
     padding-bottom: 30px;

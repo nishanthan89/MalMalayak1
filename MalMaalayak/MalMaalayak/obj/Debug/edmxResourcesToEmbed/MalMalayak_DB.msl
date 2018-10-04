@@ -28,22 +28,13 @@
     <EntitySetMapping Name="BirthDetails">
       <EntityTypeMapping TypeName="MalMalayakDbModel1.BirthDetail">
         <MappingFragment StoreEntitySet="BirthDetail">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
           <ScalarProperty Name="MotherPlace" ColumnName="MotherPlace" />
           <ScalarProperty Name="FartherPlace" ColumnName="FartherPlace" />
           <ScalarProperty Name="BirthTime" ColumnName="BirthTime" />
           <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="NIC" ColumnName="NIC" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Casts">
-      <EntityTypeMapping TypeName="MalMalayakDbModel1.Cast">
-        <MappingFragment StoreEntitySet="Cast">
-          <ScalarProperty Name="Comments" ColumnName="Comments" />
-          <ScalarProperty Name="CastName" ColumnName="CastName" />
-          <ScalarProperty Name="CastId" ColumnName="CastId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -55,8 +46,8 @@
           <ScalarProperty Name="Height" ColumnName="Height" />
           <ScalarProperty Name="Religion" ColumnName="Religion" />
           <ScalarProperty Name="Job" ColumnName="Job" />
-          <ScalarProperty Name="CastId" ColumnName="CastId" />
-          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+          <ScalarProperty Name="Cast" ColumnName="Cast" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="NIC" ColumnName="NIC" />
@@ -67,51 +58,27 @@
     <EntitySetMapping Name="ContactDetails">
       <EntityTypeMapping TypeName="MalMalayakDbModel1.ContactDetail">
         <MappingFragment StoreEntitySet="ContactDetail">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
           <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="PhoneMobile" ColumnName="PhoneMobile" />
           <ScalarProperty Name="PhoneHome" ColumnName="PhoneHome" />
           <ScalarProperty Name="Residence" ColumnName="Residence" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="NIC" ColumnName="NIC" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Genders">
-      <EntityTypeMapping TypeName="MalMalayakDbModel1.Gender">
-        <MappingFragment StoreEntitySet="Gender">
-          <ScalarProperty Name="GenderType" ColumnName="GenderType" />
-          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="JothidaDetails">
       <EntityTypeMapping TypeName="MalMalayakDbModel1.JothidaDetail">
         <MappingFragment StoreEntitySet="JothidaDetail">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
           <ScalarProperty Name="NavamsaChart" ColumnName="NavamsaChart" />
           <ScalarProperty Name="LagnaChart" ColumnName="LagnaChart" />
           <ScalarProperty Name="Paavam" ColumnName="Paavam" />
           <ScalarProperty Name="Star" ColumnName="Star" />
           <ScalarProperty Name="Lagna" ColumnName="Lagna" />
-          <ScalarProperty Name="NIC" ColumnName="NIC" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Lagnas">
-      <EntityTypeMapping TypeName="MalMalayakDbModel1.Lagna">
-        <MappingFragment StoreEntitySet="Lagna">
-          <ScalarProperty Name="LagnaId" ColumnName="LagnaId" />
-          <ScalarProperty Name="LagnaType" ColumnName="LagnaType" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Stars">
-      <EntityTypeMapping TypeName="MalMalayakDbModel1.Star">
-        <MappingFragment StoreEntitySet="Star">
-          <ScalarProperty Name="StarName" ColumnName="StarName" />
-          <ScalarProperty Name="StarId" ColumnName="StarId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

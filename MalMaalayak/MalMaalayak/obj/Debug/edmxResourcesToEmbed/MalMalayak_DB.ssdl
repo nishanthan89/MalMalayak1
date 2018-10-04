@@ -4,83 +4,54 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DOB" Type="date" />
     <Property Name="BirthPlace" Type="varchar" MaxLength="50" />
     <Property Name="BirthTime" Type="varchar" MaxLength="50" />
     <Property Name="FartherPlace" Type="varchar" MaxLength="50" />
     <Property Name="MotherPlace" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Cast">
-    <Key>
-      <PropertyRef Name="CastId" />
-    </Key>
-    <Property Name="CastId" Type="int" Nullable="false" />
-    <Property Name="CastName" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="Comments" Type="varchar" MaxLength="200" />
+    <Property Name="ClientId" Type="int" />
   </EntityType>
   <EntityType Name="ClientDetail">
     <Key>
-      <PropertyRef Name="NIC" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="FirstName" Type="varchar" MaxLength="50" />
     <Property Name="LastName" Type="varchar" MaxLength="50" />
-    <Property Name="GenderId" Type="int" />
-    <Property Name="CastId" Type="int" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="Cast" Type="int" />
     <Property Name="Job" Type="varchar" MaxLength="50" />
-    <Property Name="Religion" Type="varchar" MaxLength="30" />
+    <Property Name="Religion" Type="int" />
     <Property Name="Height" Type="varchar" MaxLength="50" />
-    <Property Name="Qualification" Type="varchar" MaxLength="50" />
-    <Property Name="Expectation" Type="varchar" MaxLength="50" />
+    <Property Name="Qualification" Type="int" />
+    <Property Name="Expectation" Type="int" />
   </EntityType>
   <EntityType Name="ContactDetail">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Address" Type="varchar" MaxLength="50" />
     <Property Name="Residence" Type="varchar" MaxLength="50" />
     <Property Name="PhoneHome" Type="int" />
     <Property Name="PhoneMobile" Type="int" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="Country" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Gender">
-    <Key>
-      <PropertyRef Name="GenderId" />
-    </Key>
-    <Property Name="GenderId" Type="int" Nullable="false" />
-    <Property Name="GenderType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Country" Type="int" />
+    <Property Name="ClientId" Type="int" />
   </EntityType>
   <EntityType Name="JothidaDetail">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Lagna" Type="varchar" MaxLength="50" />
-    <Property Name="Star" Type="varchar" MaxLength="30" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lagna" Type="int" />
+    <Property Name="Star" Type="int" />
     <Property Name="Paavam" Type="varchar" MaxLength="50" />
     <Property Name="LagnaChart" Type="image" />
     <Property Name="NavamsaChart" Type="image" />
-  </EntityType>
-  <EntityType Name="Lagna">
-    <Key>
-      <PropertyRef Name="LagnaId" />
-    </Key>
-    <Property Name="LagnaType" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="LagnaId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Star">
-    <Key>
-      <PropertyRef Name="StarId" />
-    </Key>
-    <Property Name="StarId" Type="int" Nullable="false" />
-    <Property Name="StarName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClientId" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -93,62 +64,38 @@
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK_BirthDetail_ClientDetail">
-    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="1" />
+    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="0..1" />
     <End Role="BirthDetail" Type="Self.BirthDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ClientDetail">
-        <PropertyRef Name="NIC" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="BirthDetail">
-        <PropertyRef Name="NIC" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ClientDetail_Cast">
-    <End Role="Cast" Type="Self.Cast" Multiplicity="0..1" />
-    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cast">
-        <PropertyRef Name="CastId" />
-      </Principal>
-      <Dependent Role="ClientDetail">
-        <PropertyRef Name="CastId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ClientDetail_Gender">
-    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
-    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Gender">
-        <PropertyRef Name="GenderId" />
-      </Principal>
-      <Dependent Role="ClientDetail">
-        <PropertyRef Name="GenderId" />
+        <PropertyRef Name="ClientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ContactDetail_ClientDetail">
-    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="1" />
+    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="0..1" />
     <End Role="ContactDetail" Type="Self.ContactDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ClientDetail">
-        <PropertyRef Name="NIC" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ContactDetail">
-        <PropertyRef Name="NIC" />
+        <PropertyRef Name="ClientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_JothidaDetail_ClientDetail">
-    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="1" />
+    <End Role="ClientDetail" Type="Self.ClientDetail" Multiplicity="0..1" />
     <End Role="JothidaDetail" Type="Self.JothidaDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ClientDetail">
-        <PropertyRef Name="NIC" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="JothidaDetail">
-        <PropertyRef Name="NIC" />
+        <PropertyRef Name="ClientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -185,25 +132,13 @@
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="MalMalayakDbModel1StoreContainer">
     <EntitySet Name="BirthDetail" EntityType="Self.BirthDetail" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Cast" EntityType="Self.Cast" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClientDetail" EntityType="Self.ClientDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ContactDetail" EntityType="Self.ContactDetail" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JothidaDetail" EntityType="Self.JothidaDetail" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Lagna" EntityType="Self.Lagna" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Star" EntityType="Self.Star" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_BirthDetail_ClientDetail" Association="Self.FK_BirthDetail_ClientDetail">
       <End Role="ClientDetail" EntitySet="ClientDetail" />
       <End Role="BirthDetail" EntitySet="BirthDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ClientDetail_Cast" Association="Self.FK_ClientDetail_Cast">
-      <End Role="Cast" EntitySet="Cast" />
-      <End Role="ClientDetail" EntitySet="ClientDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ClientDetail_Gender" Association="Self.FK_ClientDetail_Gender">
-      <End Role="Gender" EntitySet="Gender" />
-      <End Role="ClientDetail" EntitySet="ClientDetail" />
     </AssociationSet>
     <AssociationSet Name="FK_ContactDetail_ClientDetail" Association="Self.FK_ContactDetail_ClientDetail">
       <End Role="ClientDetail" EntitySet="ClientDetail" />

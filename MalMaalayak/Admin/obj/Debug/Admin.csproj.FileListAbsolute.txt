@@ -1,4 +1,3 @@
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\WebGrease.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\ApplicationInsights.config
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\Admin.dll.config
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\Admin.dll
@@ -21,6 +20,7 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\System.We
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\System.Web.WebPages.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\System.Web.WebPages.Razor.dll
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\WebGrease.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\System.Web.Helpers.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\System.Web.Mvc.xml
@@ -36,7 +36,8 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\Microsoft
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\bin\Microsoft.AI.Web.xml
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\obj\Debug\Admin.csprojAssemblyReference.cache
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\obj\Debug\Admin.csproj.CoreCompileInputs.cache
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\obj\Debug\Admin.csproj.CopyComplete
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\obj\Debug\Admin.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\Admin\obj\Debug\Admin.pdb

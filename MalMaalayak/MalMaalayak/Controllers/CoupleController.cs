@@ -20,7 +20,7 @@ namespace MalMaalayak.Controllers
             int pageSize = 10;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
-            var CoupleDetails =coupleBL.GetCouple().OrderBy
+            var CoupleDetails =coupleBL.GetMale().OrderBy
                                 (m => m.StarName).ToPagedList(pageIndex, pageSize); 
 
             return View(CoupleDetails);
@@ -35,7 +35,7 @@ namespace MalMaalayak.Controllers
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
 
 
-            var CoupleDetails = coupleBL.GetCoupleFemale().OrderBy
+            var CoupleDetails = coupleBL.GetFemale().OrderBy
                                 (m => m.StarName).ToPagedList(pageIndex, pageSize);
             return View("GetCouple", CoupleDetails);
         }

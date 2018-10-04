@@ -30,6 +30,7 @@ namespace MalMaalayak.Models
         public string Height { get; set; }
 
         public int StarId { get; set; }
+        public string Star { get; set; }
 
         [Display(Name = "Star")]
         public string StarName { get; set; }

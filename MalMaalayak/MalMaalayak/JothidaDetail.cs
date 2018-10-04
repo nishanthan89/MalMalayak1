@@ -15,12 +15,12 @@ namespace MalMaalayak
     public partial class JothidaDetail
     {
         public int Id { get; set; }
-        public string NIC { get; set; }
-        public string Lagna { get; set; }
-        public string Star { get; set; }
+        public Nullable<int> Lagna { get; set; }
+        public Nullable<int> Star { get; set; }
         public string Paavam { get; set; }
         public byte[] LagnaChart { get; set; }
         public byte[] NavamsaChart { get; set; }
+        public Nullable<int> ClientId { get; set; }
     
         public virtual ClientDetail ClientDetail { get; set; }
     }

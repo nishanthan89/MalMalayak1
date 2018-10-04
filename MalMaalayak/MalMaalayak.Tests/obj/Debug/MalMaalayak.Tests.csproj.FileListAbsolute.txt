@@ -82,7 +82,8 @@ C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\b
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\PagedList.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\System.Web.Http.WebHost.xml
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\obj\Debug\MalMaalayak.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\obj\Debug\MalMaalayak.Tests.csprojAssemblyReference.cache
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\obj\Debug\MalMaalayak.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\obj\Debug\MalMaalayak.Tests.csproj.CopyComplete
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\obj\Debug\MalMaalayak.Tests.dll
 C:\Users\Nishanthan\Documents\GitHub\MalMalayak1\MalMaalayak\MalMaalayak.Tests\obj\Debug\MalMaalayak.Tests.pdb

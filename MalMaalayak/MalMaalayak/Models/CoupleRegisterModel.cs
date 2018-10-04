@@ -9,49 +9,54 @@ namespace MalMaalayak.Models
 {
     public class CoupleRegisterModel
     {
-        [Display(Name = "NIC No")]
+        //[Required(ErrorMessage = "Title field is required"), Display(Name = "Title")]
+
+
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "NIC is required"), Display(Name = "NIC No")]
         public string NIC { get; set; }
 
-        [Display(Name = "First Name")]
+        [Required(ErrorMessage = "First Name field is required"), Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last Name")]
+        [Required(ErrorMessage = "Last Name field is required"), Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Display(Name = "Gender")]
+        [Required(ErrorMessage = "Title field is required"), Display(Name = "Gender")]
        // public string GenderType { get; set; }
         public ConstantDetail.Gender GenderType { get; set; }
 
-        [Display(Name = "Religion")]
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Religion")]
        // public string Religion { get; set; }
         public ConstantDetail.Religion Religion { get; set; }
 
-        [Display(Name = "Job")]
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Job")]
         public string Job { get; set; }
 
-        [Display(Name = "Height")]
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Height")]
         public string Height { get; set; }
 
-        [Display(Name = "Star")]
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Star")]
         //public string StarName { get; set; }
         public ConstantDetail.Star StarName { get; set; }
 
-        [Display(Name = "Caste")]
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Caste")]
        // public string CasteName { get; set; }
         public ConstantDetail.Caste CasteName { get; set; }
 
-        [Display(Name = "Lagna")]
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Lagna")]
         //public string Lagna { get; set; }
         public ConstantDetail.Lagna Lagna { get; set; }
 
-        [Display(Name = "Qualification")]
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Qualification")]
         //public string Qualification { get; set; }
         public ConstantDetail.Qualification Qualification { get; set; }
 
-        [Display(Name = "Birth Of Date")]
-        public string BirthOfDate { get; set; }
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Birth Of Date")]
+        public DateTime BirthOfDate { get; set; }
 
-        [Display(Name = "Birth Place")]
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Birth Place")]
         public string BirthPlace { get; set; }
 
         [Display(Name = "Birth Time")]
@@ -72,15 +77,15 @@ namespace MalMaalayak.Models
         [Display(Name = "Residence")]
         public string Residence { get; set; }
 
-        [Display(Name = "Country")]
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Country")]
         //public string Country { get; set; }
         public ConstantDetail.Country Country { get; set; }
 
         [Display(Name = "Phone Number(Home)")]
-        public string HomePhone { get; set; }
+        public int ? HomePhone { get; set; }
 
-        [Display(Name = "Phone Number(Mobile)")]
-        public string MobileNo { get; set; }
+        [Required(ErrorMessage = "This field is required"), Display(Name = "Phone Number(Mobile)")]
+        public int ? MobileNo { get; set; }
 
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -88,6 +93,10 @@ namespace MalMaalayak.Models
         [Display(Name = "Expectation")]
         //public string Expectation { get; set; }
         public ConstantDetail.Expectation Expectation { get; set; }
+
+        public byte[] LagnaChart { get; set; }
+        public byte[] NavamsaChart { get; set; }
+
 
 
 
@@ -102,8 +111,8 @@ namespace MalMaalayak.Models
         //    Alli = 3
         //}
 
-       // public ConstantDetail.Gender GenderList { get; set; }
-       // public ConstantDetail.Religion ReligionList { get; set; }
+        // public ConstantDetail.Gender GenderList { get; set; }
+        // public ConstantDetail.Religion ReligionList { get; set; }
         //public ConstantDetail.Caste CasteList { get; set; }
         //public ConstantDetail.Star StarList { get; set; }
         //public ConstantDetail.Lagna LagnaList { get; set; }

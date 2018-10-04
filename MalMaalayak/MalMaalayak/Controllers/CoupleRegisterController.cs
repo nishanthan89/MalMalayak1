@@ -1,6 +1,4 @@
-﻿
-
-using MalMaalayak.BL;
+﻿using MalMaalayak.BL;
 using MalMaalayak.Models;
 using System;
 using System.Collections.Generic;
@@ -13,29 +11,56 @@ namespace MalMaalayak.Controllers
     public class CoupleRegisterController : Controller
     {
         CoupleBL coupleBL = new CoupleBL();
-        //private UtilityBL utilityBL = new UtilityBL();
+        CoupleRegisterModel CoupleRegisterModel = new CoupleRegisterModel();
+        
 
-        //private void _SetDropdowns()
-        //{
-        //    ViewBag.LagnaList = utilityBL.GetLagnalist().Select(x => new SelectListItem()
-        //    {
-        //        Value = x.LagnaId.ToString(),
-        //        Text = x.LagnaType,
-        //    });
-
-        //}
-        // GET: CoupleRegister
-        public ActionResult CoupleRegister()
+        public ActionResult CoupleRegister(/*int? id*/)
         {
-           // _SetDropdowns();
-            return View();
+            //if (id != null && id > 0)
+            //{
+            //    CoupleRegisterModel = coupleBL.GetClientDetail((int)id);
+            //}
+
+            return View("CoupleRegister", CoupleRegisterModel);
            
         }
+
+        public ActionResult CoupleEdit(int? id, string button)
+        {
+            if (id != null && id > 0)
+            {
+                CoupleRegisterModel = coupleBL.GetClientDetail((int)id);
+            }
+
+            return View("CoupleRegister", CoupleRegisterModel);
+
+        }
+
         [HttpPost]
         public ActionResult SaveCoupleDetail(CoupleRegisterModel coupleRegisterModel)
         {
-            var saveData = coupleBL.CoupleRegister(coupleRegisterModel);
-            return View();
+          coupleBL.CoupleRegister(coupleRegisterModel);
+          return View("~/Views/Home/Contact.cshtml");
+        }
+
+        public ActionResult ViewAllClient()
+        {
+
+            var data=coupleBL.ViewAllClientData();
+            return View(data);
+
+        }
+
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult DeleteData(int ? id)
+        {
+            var data= coupleBL.DeleteClientDetail((int)id);
+
+            //PersonalDetail personalDetail = db.PersonalDetails.Find(id);
+            //db.PersonalDetails.Remove(personalDetail);
+            //db.SaveChanges();
+            return View("~/Views/Home/Contact.cshtml");
         }
 
     }

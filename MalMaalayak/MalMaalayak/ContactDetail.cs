@@ -15,13 +15,13 @@ namespace MalMaalayak
     public partial class ContactDetail
     {
         public int Id { get; set; }
-        public string NIC { get; set; }
         public string Address { get; set; }
         public string Residence { get; set; }
         public Nullable<int> PhoneHome { get; set; }
         public Nullable<int> PhoneMobile { get; set; }
         public string Email { get; set; }
-        public string Country { get; set; }
+        public Nullable<int> Country { get; set; }
+        public Nullable<int> ClientId { get; set; }
     
         public virtual ClientDetail ClientDetail { get; set; }
     }

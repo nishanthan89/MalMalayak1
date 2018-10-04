@@ -14,13 +14,11 @@ namespace MalMaalayak.Constants
             Other=3
         }
 
-        public enum Religion
-        {
+        public enum Religion {
             Hindu=1,
             Christian=2,
             Islam=3,
             Buddist=4
-
         }
         public enum Caste
         {

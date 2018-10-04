@@ -15,12 +15,12 @@ namespace MalMaalayak
     public partial class BirthDetail
     {
         public int Id { get; set; }
-        public string NIC { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
         public string BirthPlace { get; set; }
         public string BirthTime { get; set; }
         public string FartherPlace { get; set; }
         public string MotherPlace { get; set; }
+        public Nullable<int> ClientId { get; set; }
     
         public virtual ClientDetail ClientDetail { get; set; }
     }

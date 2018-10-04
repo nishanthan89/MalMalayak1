@@ -26,18 +26,16 @@ namespace MalMaalayak
         public string NIC { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Nullable<int> GenderId { get; set; }
-        public Nullable<int> CastId { get; set; }
+        public Nullable<int> Gender { get; set; }
+        public Nullable<int> Cast { get; set; }
         public string Job { get; set; }
-        public string Religion { get; set; }
+        public Nullable<int> Religion { get; set; }
         public string Height { get; set; }
-        public string Qualification { get; set; }
-        public string Expectation { get; set; }
+        public Nullable<int> Qualification { get; set; }
+        public Nullable<int> Expectation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BirthDetail> BirthDetails { get; set; }
-        public virtual Cast Cast { get; set; }
-        public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ContactDetail> ContactDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
