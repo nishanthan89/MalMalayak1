@@ -44,6 +44,11 @@ namespace MalMaalayak.Controllers
         {
             return View("GetMoreDetails");
         }
+        [HttpGet]
+        public ActionResult test()
+        {
+            return View("test");
+        }
 
     }
 }

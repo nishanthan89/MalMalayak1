@@ -54,7 +54,12 @@ namespace MalMaalayak.Models
         public ConstantDetail.Qualification Qualification { get; set; }
 
         [Required(ErrorMessage = "This field is required"), Display(Name = "Birth Of Date")]
-        public DateTime BirthOfDate { get; set; }
+        public DateTime ? BirthOfDate { get; set; }
+
+
+        [Required(ErrorMessage = "This field is required"), Display(Name = "TestDate")]
+        public DateTime TestDate { get; set; }
+
 
         [Required(ErrorMessage = "This field is required"), Display(Name = "Birth Place")]
         public string BirthPlace { get; set; }

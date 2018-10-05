@@ -323,16 +323,16 @@ namespace MalMaalayak.BL
             var data2 = db.BirthDetails.Where(x => x.ClientId == id).FirstOrDefault();
             var data3 = db.ClientDetails.Where(x => x.Id == id).FirstOrDefault();
 
-                //if (data != null)
-                //{
+            if (data3 != null)
+            {
                 db.Entry(data).State = EntityState.Deleted;
                 db.Entry(data1).State = EntityState.Deleted;
                 db.Entry(data2).State = EntityState.Deleted;
                 db.Entry(data3).State = EntityState.Deleted;
                 db.SaveChanges();
-                   
-                //}
-     
+
+            }
+
             return null;
 
 

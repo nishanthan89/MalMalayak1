@@ -6,11 +6,21 @@
 }
 
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+@*<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">*@
 
 
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+</head>
 <body>
     <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">
 
@@ -118,16 +128,25 @@
                                 @Html.EnumDropDownListFor(model => model.Qualification)
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <div class="col-lg-3">
                                 @Html.DisplayNameFor(model => model.BirthOfDate)
                             </div>
-                            <div class="col-lg-9">
-                                @Html.EditorFor(model => model.BirthOfDate)
-                                @* @Html.ValidationMessageFor(model => model.BirthOfDate)*@
-                                @* @Html.TextBoxFor(model => model.BirthOfDate)*@
+                            <div class="col-lg-9 ">
+                               
+                                    <div class='input-group date' id='datetimepicker6'>
+                                         @Html.EditorFor(model => model.BirthOfDate, new { htmlAttributes = new { @class = "form-control" } })
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                       
+                                @* @Html.EditorFor(model => model.BirthOfDate, new { htmlAttributes = new { @class = "form-control datetimepicker" } })*@
                             </div>
                         </div>
+
+
                         <div class="form-group row">
                             <div class="col-lg-3">
                                 @Html.DisplayNameFor(model => model.BirthPlace)
@@ -226,8 +245,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
@@ -256,6 +273,8 @@
                     </form>
                 </div>
             </div>
+
+
             <!-- /form user info -->
 
         }
@@ -263,22 +282,47 @@
 </body>
 </html>
 
-@section scripts {
-    <script type="text/javascript">
-  $(function () {
-      $('#BirthOfDate').datetimepicker({
-      defaultDate: '@Model.BirthOfDate',
-      format: 'L',
-      showClose: true,
-      showClear: true,
-      toolbarPlacement: 'top'
+
+@*@section scripts {
+        <script type="text/javascript">
+      $(function () {
+          $('#BirthOfDate').datetimepicker({
+          defaultDate: '@Model.BirthOfDate',
+          format: 'L',
+          showClose: true,
+          showClear: true,
+          toolbarPlacement: 'top'
+            });
+          });
+        </script>
+    }*@
+
+@*<script type="text/javascript">
+        $(function () {
+            $(".datetimepicker").datepicker({
+   
+                format: 'dd/mm/yyyy',
+                startDate: '-3d'
+
+            });
         });
-      });
-    </script>
-}
+
+ </script>*@
 
 
+<script>
+    $('#datetimepicker6').datetimepicker({
 
+        format: 'DD/MM/YYYY',
+        defaultDate: new Date()
+       
+    });
+ 
+    $("#datetimepicker6").on("dp.change", function (e) {
+        $('#datetimepicker6').data("DateTimePicker").minDate(e.date);
+    });
+
+</script>
 
 
 
