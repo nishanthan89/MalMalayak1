@@ -12,6 +12,7 @@ namespace MalMaalayak.Controllers
     public class CoupleController : Controller
     {
         CoupleBL coupleBL = new CoupleBL();
+        CoupleRegisterModel CoupleRegisterModel = new CoupleRegisterModel();
         public IList<ClientDetailClassModel> coupleList = new List<ClientDetailClassModel>();
         // GET: Couple
         public ActionResult GetCouple(int? page = 1)
@@ -40,9 +41,15 @@ namespace MalMaalayak.Controllers
             return View("GetCouple", CoupleDetails);
         }
         [HttpGet]
-        public ActionResult GetMoreDetails()
+        public ActionResult GetMoreDetails(int? id, string button)
         {
-            return View("GetMoreDetails");
+            if (id != null && id > 0)
+            {
+                CoupleRegisterModel = coupleBL.GetClientDetail((int)id);
+            }
+
+            return View("GetMoreDetails", CoupleRegisterModel);
+            //return View("GetMoreDetails");
         }
         [HttpGet]
         public ActionResult test()

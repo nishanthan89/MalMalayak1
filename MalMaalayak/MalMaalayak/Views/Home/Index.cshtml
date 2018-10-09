@@ -11,64 +11,64 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<body>
-    <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">
+<body style="background-color:yellow;">
 
-            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        //if (Model.Id != null)
+        //{
+            @*@Html.HiddenFor(model => model.Id)
+       
+        @Html.AntiForgeryToken()*@ 
+
+        <div class="row">
+            @foreach (var cd in Model)
             {
 
-                <div class="probootstrap-bar">
-                    <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
-                    <div class="probootstrap-main-site-logo"><a href="index.html">Aside</a></div>
-                </div>
+                <div class="col-md-3">
+                    <div class="card" style="background-color:lightblue; margin-bottom:5px;margin-right:5px; ">
+                        @if (cd.GenderType == MalMaalayak.Constants.ConstantDetail.Gender.Male)
+                        {
+                            <div>
+                                <img class="card-img-top" src="~/images/boy.jpg" alt="Card image cap">
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+                                <img class="card-img-top" src="~/images/girl.jpg" alt="Card image cap">
+                            </div>}
 
 
-                <div class="row">
 
-                    @foreach (var cd in Model)
-                    {
-
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="card" style="width: 15rem;">
-                                @*<div class="h-50 d-inline-block">*@
-                                <div>
-                                    <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
-                                </div>
-                                <div class="card-block ">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text" style="line-height:10px">@cd.GenderType</p>
-                                    <p class="card-text" style="line-height:10px">@cd.Lagna</p>
-                                    <p class="card-text" style="line-height:10px">@cd.Star</p>
-                                    <p class="card-text" style="line-height:10px">@cd.Job</p>
-                                    @*<a href="@Url.Action("GetMoreDetails", "Couple")" class="btn btn-primary">More Detail</a>*@
-                                </div>
-                                <div class="card-footer">
-                                    <a href="@Url.Action("GetMoreDetails", "Couple")" class="btn btn-primary">More</a>
-                                </div>
-                                @*</div>*@
+                        <div class="card-block ">
+                            <h4 class="card-title"></h4>
+                            <p class="card-text" style="line-height:10px">@cd.GenderType</p>
+                            <p class="card-text" style="line-height:10px">@cd.Lagna</p>
+                            <p class="card-text" style="line-height:10px">@cd.StarName</p>
+                            <p class="card-text" style="line-height:10px">@cd.Job</p>
+                            <div class="card-footer">
+                                <a href="@Url.Action("GetMoreDetails", "Couple", new { id = cd.Id})")" class="btn btn-primary">More</a>
                             </div>
                         </div>
-
-                    }
- 
-                
-                </div>
-            
-
-                <div id='Paging' style="text-align:center">
-                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
-                    of @Model.PageCount
-                    <div class="pagination justify-content-center">
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
                     </div>
-
                 </div>
 
             }
-       
-
-</main>
 
 
+        </div>
+
+
+        <div id='Paging' style="text-align:center">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            of @Model.PageCount
+            <div class="pagination justify-content-center">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
+
+        </div>
+
+    }
 </body>
 </html>

@@ -35,6 +35,7 @@
     <EntitySet Name="ClientDetails" EntityType="MalMalayakDbModel1.ClientDetail" />
     <EntitySet Name="ContactDetails" EntityType="MalMalayakDbModel1.ContactDetail" />
     <EntitySet Name="JothidaDetails" EntityType="MalMalayakDbModel1.JothidaDetail" />
+    <EntitySet Name="StarDetails" EntityType="MalMalayakDbModel1.StarDetail" />
     <EntitySet Name="sysdiagrams" EntityType="MalMalayakDbModel1.sysdiagram" />
     <AssociationSet Name="FK_BirthDetail_ClientDetail" Association="MalMalayakDbModel1.FK_BirthDetail_ClientDetail">
       <End Role="ClientDetail" EntitySet="ClientDetails" />
@@ -112,12 +113,19 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Lagna" Type="Int32" />
-    <Property Name="Star" Type="Int32" />
+    <Property Name="StarId" Type="Int32" />
     <Property Name="Paavam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="LagnaChart" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="NavamsaChart" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="ClientId" Type="Int32" />
     <NavigationProperty Name="ClientDetail" Relationship="MalMalayakDbModel1.FK_JothidaDetail_ClientDetail" FromRole="JothidaDetail" ToRole="ClientDetail" />
+  </EntityType>
+  <EntityType Name="StarDetail">
+    <Key>
+      <PropertyRef Name="StarId" />
+    </Key>
+    <Property Name="StarId" Type="Int32" Nullable="false" />
+    <Property Name="StarName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>

@@ -76,9 +76,17 @@
           <ScalarProperty Name="NavamsaChart" ColumnName="NavamsaChart" />
           <ScalarProperty Name="LagnaChart" ColumnName="LagnaChart" />
           <ScalarProperty Name="Paavam" ColumnName="Paavam" />
-          <ScalarProperty Name="Star" ColumnName="Star" />
+          <ScalarProperty Name="StarId" ColumnName="StarId" />
           <ScalarProperty Name="Lagna" ColumnName="Lagna" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StarDetails">
+      <EntityTypeMapping TypeName="MalMalayakDbModel1.StarDetail">
+        <MappingFragment StoreEntitySet="StarDetail">
+          <ScalarProperty Name="StarName" ColumnName="StarName" />
+          <ScalarProperty Name="StarId" ColumnName="StarId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

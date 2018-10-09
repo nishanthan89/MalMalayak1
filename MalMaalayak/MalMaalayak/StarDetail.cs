@@ -12,16 +12,9 @@ namespace MalMaalayak
     using System;
     using System.Collections.Generic;
     
-    public partial class JothidaDetail
+    public partial class StarDetail
     {
-        public int Id { get; set; }
-        public Nullable<int> Lagna { get; set; }
-        public Nullable<int> StarId { get; set; }
-        public string Paavam { get; set; }
-        public byte[] LagnaChart { get; set; }
-        public byte[] NavamsaChart { get; set; }
-        public Nullable<int> ClientId { get; set; }
-    
-        public virtual ClientDetail ClientDetail { get; set; }
+        public int StarId { get; set; }
+        public string StarName { get; set; }
     }
 }

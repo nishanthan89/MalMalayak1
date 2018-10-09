@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using static MalMaalayak.Constants.ConstantDetail;
 
 namespace MalMaalayak.Models
 {
     public class ClientDetailClassModel
     {
+        public int Id { get; set; }
         [Display(Name = "NIC No")]
         public string NIC { get; set; }
         [Display(Name = "First Name")]
@@ -18,7 +20,7 @@ namespace MalMaalayak.Models
         public int GenderId { get; set; }
 
         [Display(Name = "Gender")]
-        public string GenderType { get; set; }
+        public Gender GenderType { get; set; }
 
         [Display(Name = "Religion")]
         public string Religion { get; set; }
@@ -29,23 +31,23 @@ namespace MalMaalayak.Models
         [Display(Name = "Height")]
         public string Height { get; set; }
 
-        public int StarId { get; set; }
-        public string Star { get; set; }
+        public Star StarId { get; set; }
+        public Star Star { get; set; }
 
         [Display(Name = "Star")]
-        public string StarName { get; set; }
+        public Star StarName { get; set; }
 
 
 
         public int CastId { get; set; }
         [Display(Name = "Cast")]
-        public string CastName { get; set; }
+        public Caste CastName { get; set; }
 
         [Display(Name = "Lagna")]
-        public string Lagna { get; set; }
+        public Lagna Lagna { get; set; }
 
         [Display(Name = "Qualification")]
-        public string Qualification { get; set; }
+        public Qualification Qualification { get; set; }
 
         [Display(Name = "Birth Of Date")]
         public string BirthOfDate { get; set; }
@@ -69,7 +71,7 @@ namespace MalMaalayak.Models
         [Display(Name = "Residence")]
         public string Residence { get; set; }
         [Display(Name = "Country")]
-        public string Country { get; set; }
+        public Country Country { get; set; }
 
         [Display(Name = "Phone Number(Home)")]
         public string HomePhone { get; set; }
@@ -79,7 +81,7 @@ namespace MalMaalayak.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
         [Display(Name = "Expectation")]
-        public string Expectation { get; set; }
+        public Expectation Expectation { get; set; }
 
 
 
@@ -93,6 +95,10 @@ namespace MalMaalayak.Models
         public List<ClientDetail> CoupleList { get; set; }
         //public IEnumerable<ClientDetail> CoupleList { get; set; }
 
+
+
+        public string PhotoType { get; set; }
+       // public string HomePhone { get; set; }
 
 
     }

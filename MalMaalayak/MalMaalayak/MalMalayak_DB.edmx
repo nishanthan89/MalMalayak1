@@ -52,11 +52,18 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Lagna" Type="int" />
-          <Property Name="Star" Type="int" />
+          <Property Name="StarId" Type="int" />
           <Property Name="Paavam" Type="varchar" MaxLength="50" />
           <Property Name="LagnaChart" Type="image" />
           <Property Name="NavamsaChart" Type="image" />
           <Property Name="ClientId" Type="int" />
+        </EntityType>
+        <EntityType Name="StarDetail">
+          <Key>
+            <PropertyRef Name="StarId" />
+          </Key>
+          <Property Name="StarId" Type="int" Nullable="false" />
+          <Property Name="StarName" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -140,6 +147,7 @@
           <EntitySet Name="ClientDetail" EntityType="Self.ClientDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContactDetail" EntityType="Self.ContactDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JothidaDetail" EntityType="Self.JothidaDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StarDetail" EntityType="Self.StarDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BirthDetail_ClientDetail" Association="Self.FK_BirthDetail_ClientDetail">
             <End Role="ClientDetail" EntitySet="ClientDetail" />
@@ -193,6 +201,7 @@
           <EntitySet Name="ClientDetails" EntityType="MalMalayakDbModel1.ClientDetail" />
           <EntitySet Name="ContactDetails" EntityType="MalMalayakDbModel1.ContactDetail" />
           <EntitySet Name="JothidaDetails" EntityType="MalMalayakDbModel1.JothidaDetail" />
+          <EntitySet Name="StarDetails" EntityType="MalMalayakDbModel1.StarDetail" />
           <EntitySet Name="sysdiagrams" EntityType="MalMalayakDbModel1.sysdiagram" />
           <AssociationSet Name="FK_BirthDetail_ClientDetail" Association="MalMalayakDbModel1.FK_BirthDetail_ClientDetail">
             <End Role="ClientDetail" EntitySet="ClientDetails" />
@@ -270,12 +279,19 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Lagna" Type="Int32" />
-          <Property Name="Star" Type="Int32" />
+          <Property Name="StarId" Type="Int32" />
           <Property Name="Paavam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LagnaChart" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="NavamsaChart" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ClientId" Type="Int32" />
           <NavigationProperty Name="ClientDetail" Relationship="MalMalayakDbModel1.FK_JothidaDetail_ClientDetail" FromRole="JothidaDetail" ToRole="ClientDetail" />
+        </EntityType>
+        <EntityType Name="StarDetail">
+          <Key>
+            <PropertyRef Name="StarId" />
+          </Key>
+          <Property Name="StarId" Type="Int32" Nullable="false" />
+          <Property Name="StarName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -404,9 +420,17 @@
                 <ScalarProperty Name="NavamsaChart" ColumnName="NavamsaChart" />
                 <ScalarProperty Name="LagnaChart" ColumnName="LagnaChart" />
                 <ScalarProperty Name="Paavam" ColumnName="Paavam" />
-                <ScalarProperty Name="Star" ColumnName="Star" />
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
                 <ScalarProperty Name="Lagna" ColumnName="Lagna" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StarDetails">
+            <EntityTypeMapping TypeName="MalMalayakDbModel1.StarDetail">
+              <MappingFragment StoreEntitySet="StarDetail">
+                <ScalarProperty Name="StarName" ColumnName="StarName" />
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

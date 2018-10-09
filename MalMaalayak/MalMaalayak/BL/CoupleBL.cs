@@ -4,9 +4,11 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static MalMaalayak.Constants.ConstantDetail;
 
 namespace MalMaalayak.BL
 {
@@ -28,9 +30,10 @@ namespace MalMaalayak.BL
 
                           select new ClientDetailClassModel()
                               {
-                                  GenderType = cpl.Gender.ToString(),
-                                  Lagna = jd.Lagna.ToString(),
-                                  Star= jd.Star.ToString(),
+                              Id=cpl.Id,
+                                  GenderType = (Gender)cpl.Gender,
+                                  Lagna = (Lagna)jd.Lagna,
+                                  Star= (Star)jd.StarId,
                                   Job = cpl.Job,
                                   //Residence=bd.r
                                  
@@ -55,9 +58,9 @@ namespace MalMaalayak.BL
                               
                               select new ClientDetailClassModel()
                               {
-                                  GenderType = cpl.Gender.ToString(),
-                                  Lagna = jd.Lagna.ToString(),
-                                  Star = jd.Star.ToString(),
+                                  GenderType = (Gender)cpl.Gender,
+                                  Lagna = (Lagna)jd.Lagna,
+                                  StarName = (Star)jd.StarId,
                                   Job = cpl.Job,
 
                               }).ToList();
@@ -87,9 +90,9 @@ namespace MalMaalayak.BL
                               select new ClientDetailClassModel()
                               {
 
-                                  GenderType = cpl.Gender.ToString(),
-                                  Lagna = jd.Lagna.ToString(),
-                                  Star = jd.Star.ToString(),
+                                  GenderType = (Gender)cpl.Gender,
+                                  Lagna = (Lagna)jd.Lagna,
+                                  Star = (Star)jd.StarId,
                                   Job = cpl.Job,
 
                               }).ToList();
@@ -106,7 +109,7 @@ namespace MalMaalayak.BL
             return null;
         }
 
-        public void CoupleRegister(CoupleRegisterModel modelData)
+        public void CoupleRegister(CoupleRegisterModel modelData, HttpPostedFileBase UploadLagna, HttpPostedFileBase UploadNawamsa)
         {
             // db.ClientDetails clientDetails = null;
             //ClientDetail entity = null;
@@ -132,13 +135,12 @@ namespace MalMaalayak.BL
                 {
                     ClientId = modelData.Id,
                     Lagna = (int)modelData.Lagna,
-                    Star = (int)modelData.StarName,
+                    StarId = (int)modelData.StarName,
                     Paavam = modelData.Paavam,
-                    LagnaChart = modelData.LagnaChart,
-                    NavamsaChart = modelData.NavamsaChart
+                    LagnaChart = ConvertToBytes(UploadLagna),
+                    NavamsaChart = ConvertToBytes(UploadNawamsa)
 
-
-                };
+            };
 
                 var birthDetail = new BirthDetail()
                 {
@@ -193,7 +195,7 @@ namespace MalMaalayak.BL
 
                
                 entity1.Lagna = (int)modelData.Lagna;
-                entity1.Star = (int)modelData.StarName;
+                entity1.StarId = (int)modelData.StarName;
                 entity1.Paavam = modelData.Paavam;
                 entity1.LagnaChart = modelData.LagnaChart;
                 entity1.NavamsaChart = modelData.NavamsaChart;
@@ -225,11 +227,40 @@ namespace MalMaalayak.BL
 
 
             }
+
+
+            //if (UploadLagna != null || UploadNawamsa != null)
+            //{
+            //    JothidaDetail chartModel = new JothidaDetail();
+            //    if (UploadLagna.ContentType == "image/jpeg" || UploadLagna.ContentType == "image/png" || UploadLagna.ContentType == "image/gif" || UploadNawamsa.ContentType == "image/jpeg" || UploadNawamsa.ContentType == "image/png" || UploadNawamsa.ContentType == "image/gif")
+            //    {
+            //        chartModel.PhotoType = UploadLagna.ContentType;
+            //        chartModel.LagnaChart = ConvertToBytes(UploadLagna);
+
+            //        chartModel.PhotoType = UploadLagna.ContentType;
+            //        chartModel.NavamsaChart = ConvertToBytes(UploadNawamsa);
+            //    }
+            //    else
+            //    {
+            //        //emsg = "ImageType Should Be 'jpeg' Or 'png' Or 'gif' ";
+            //        //return false;
+            //    }
+            //}
+
             //db.ClientDetails.Add(clientetail);
             //db.JothidaDetails.Add(jothidaDetail);
             //db.BirthDetails.Add(birthDetail);
             //db.ContactDetails.Add(contact);
             db.SaveChanges();
+            
+        }
+
+        private byte[] ConvertToBytes(HttpPostedFileBase uploadFile)
+        {
+            byte[] imageBytes = null;
+            BinaryReader reader = new BinaryReader(uploadFile.InputStream);
+            imageBytes = reader.ReadBytes((int)uploadFile.ContentLength);
+            return imageBytes;
         }
 
         public IEnumerable<CoupleRegisterModel> ViewAllClientData()
@@ -295,7 +326,7 @@ namespace MalMaalayak.BL
                                                      Paavam = jd.Paavam,
 
                                                      GenderType =(ConstantDetail.Gender)cpl.Gender,
-                                                     StarName = (ConstantDetail.Star)jd.Star,
+                                                     StarName = (ConstantDetail.Star)jd.StarId,
                                                      CasteName = (ConstantDetail.Caste)cpl.Cast,
                                                      Lagna = (ConstantDetail.Lagna)jd.Lagna,
                                                      Religion = (ConstantDetail.Religion)cpl.Religion,

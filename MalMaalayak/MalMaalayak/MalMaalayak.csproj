@@ -221,6 +221,9 @@
     <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="StarDetail.cs">
+      <DependentUpon>MalMalayak_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>MalMalayak_DB.tt</DependentUpon>
     </Compile>

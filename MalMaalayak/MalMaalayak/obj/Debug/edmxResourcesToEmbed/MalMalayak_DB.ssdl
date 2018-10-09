@@ -47,11 +47,18 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Lagna" Type="int" />
-    <Property Name="Star" Type="int" />
+    <Property Name="StarId" Type="int" />
     <Property Name="Paavam" Type="varchar" MaxLength="50" />
     <Property Name="LagnaChart" Type="image" />
     <Property Name="NavamsaChart" Type="image" />
     <Property Name="ClientId" Type="int" />
+  </EntityType>
+  <EntityType Name="StarDetail">
+    <Key>
+      <PropertyRef Name="StarId" />
+    </Key>
+    <Property Name="StarId" Type="int" Nullable="false" />
+    <Property Name="StarName" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -135,6 +142,7 @@
     <EntitySet Name="ClientDetail" EntityType="Self.ClientDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ContactDetail" EntityType="Self.ContactDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JothidaDetail" EntityType="Self.JothidaDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StarDetail" EntityType="Self.StarDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_BirthDetail_ClientDetail" Association="Self.FK_BirthDetail_ClientDetail">
       <End Role="ClientDetail" EntitySet="ClientDetail" />

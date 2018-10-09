@@ -53,7 +53,7 @@ namespace MalMaalayak.Models
         //public string Qualification { get; set; }
         public ConstantDetail.Qualification Qualification { get; set; }
 
-        [Required(ErrorMessage = "This field is required"), Display(Name = "Birth Of Date")]
+        //[Required(ErrorMessage = "This field is required"), Display(Name = "Birth Of Date")]
         public DateTime ? BirthOfDate { get; set; }
 
 
@@ -99,7 +99,14 @@ namespace MalMaalayak.Models
         //public string Expectation { get; set; }
         public ConstantDetail.Expectation Expectation { get; set; }
 
+
+
+        public int CurrentPageIndex { get; set; }
+        public int PageCount { get; set; }
+
+        [Display(Name = "Upload Lagna Chart")]
         public byte[] LagnaChart { get; set; }
+        [Display(Name = "Upload Navamsa Chart")]
         public byte[] NavamsaChart { get; set; }
 
 

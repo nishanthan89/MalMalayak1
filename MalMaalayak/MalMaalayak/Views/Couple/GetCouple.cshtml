@@ -6,71 +6,75 @@
 @model PagedList.IPagedList<MalMaalayak.Models.ClientDetailClassModel>
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
 <html lang="en">
-<body>
+<body style="background-color:yellow;">
 
    
 
-    <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">
-
+   @* <main role="main" class="probootstrap-main js-probootstrap-main col-lg-pull-1">*@
+    <div>
         @using (Html.BeginForm("CoupleDisplay", "Couple", FormMethod.Post))
-        {
-
-            <div class="probootstrap-bar">
-                <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
-                <div class="probootstrap-main-site-logo"><a href="index.html">Aside</a></div>
-            </div>
-
+         {
             <div class="row">
 
                 @foreach (var coupleValue in Model)
                 {
 
                     <div class="col-md-3">
-                        <div class="card" style="width: 15rem;">
-
+                        <div class="card" style="background-color:darkgray; margin-bottom:5px;margin-right:5px; ">
+                            @if (coupleValue.GenderType == MalMaalayak.Constants.ConstantDetail.Gender.Male)
+                            {
                             <div>
-                                <img class="card-img-top" src="~/images/img_1.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="~/images/boy.jpg" alt="Card image cap">
                             </div>
+                            }
+                            else
+                            {
+                            <div>
+                                <img class="card-img-top" src="~/images/girl.jpg" alt="Card image cap">
+                            </div>}
+                       
+
+
                             <div class="card-block ">
                                 <h4 class="card-title"></h4>
                                 <p class="card-text" style="line-height:10px">@coupleValue.GenderType</p>
                                 <p class="card-text" style="line-height:10px">@coupleValue.Lagna</p>
-                                <p class="card-text" style="line-height:10px">@coupleValue.Star</p>
+                                <p class="card-text" style="line-height:10px">@coupleValue.StarName</p>
                                 <p class="card-text" style="line-height:10px">@coupleValue.Job</p>
                                 <div class="card-footer">
                                     <a href="@Url.Action("GetMoreDetails", "Couple")" class="btn btn-primary">More</a>
                                 </div>
-                           </div>
+                            </div>
                         </div>
                     </div>
-
-
                 }
+
+         
             </div>
+
             <div id='Paging' style="text-align:center">
                 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
                 of @Model.PageCount
                 <div class="pagination justify-content-center">
                     @Html.PagedListPager(Model, page => Url.Action("GetCouple", new { page }))
                 </div>
-             
+
             </div>
-        }
+            }
 
+        </div>
+    @*</main>*@
 
-    </main>
-
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         function PagerClick(index) {
             document.getElementById("hfCurrentPageIndex").value = index;
             document.forms[0].submit();
         }
-    </script>
+    </script>*@
 
 </body>
 </html>

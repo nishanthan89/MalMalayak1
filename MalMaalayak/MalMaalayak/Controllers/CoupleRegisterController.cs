@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace MalMaalayak.Controllers
 {
@@ -37,16 +38,22 @@ namespace MalMaalayak.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveCoupleDetail(CoupleRegisterModel coupleRegisterModel)
+        public ActionResult SaveCoupleDetail(CoupleRegisterModel coupleRegisterModel , HttpPostedFileBase UploadLagna, HttpPostedFileBase UploadNawamsa)
         {
-          coupleBL.CoupleRegister(coupleRegisterModel);
-          return View("~/Views/Home/Contact.cshtml");
+          coupleBL.CoupleRegister(coupleRegisterModel, UploadLagna, UploadNawamsa);
+            ViewBag.Message = "Save successfully";
+            return View("~/Views/Home/Contact.cshtml");
         }
 
-        public ActionResult ViewAllClient()
+        public ActionResult ViewAllClient(int? page = 1)
         {
+            int pageSize = 10;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            var data = coupleBL.ViewAllClientData().OrderBy
+                                (m => m.FirstName).ToPagedList(pageIndex, pageSize);
 
-            var data=coupleBL.ViewAllClientData();
+          
             return View(data);
 
         }

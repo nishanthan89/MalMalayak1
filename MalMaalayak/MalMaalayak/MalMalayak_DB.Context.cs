@@ -31,6 +31,7 @@ namespace MalMaalayak
         public virtual DbSet<ClientDetail> ClientDetails { get; set; }
         public virtual DbSet<ContactDetail> ContactDetails { get; set; }
         public virtual DbSet<JothidaDetail> JothidaDetails { get; set; }
+        public virtual DbSet<StarDetail> StarDetails { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
