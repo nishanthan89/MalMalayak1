@@ -6,6 +6,7 @@
 @model PagedList.IPagedList<MalMaalayak.Models.ClientDetailClassModel>
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -46,7 +47,7 @@
                                 <p class="card-text" style="line-height:10px">@coupleValue.StarName</p>
                                 <p class="card-text" style="line-height:10px">@coupleValue.Job</p>
                                 <div class="card-footer">
-                                    <a href="@Url.Action("GetMoreDetails", "Couple")" class="btn btn-primary">More</a>
+                                    <a href="@Url.Action("GetMoreDetails", "Couple", new { id = coupleValue.Id})"  class="btn btn-primary">More</a>
                                 </div>
                             </div>
                         </div>

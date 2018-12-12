@@ -51,7 +51,7 @@ namespace MalMaalayak.Controllers
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             var data = coupleBL.ViewAllClientData().OrderBy
-                                (m => m.FirstName).ToPagedList(pageIndex, pageSize);
+                                (m => m.Id).ToPagedList(pageIndex, pageSize);
 
           
             return View(data);

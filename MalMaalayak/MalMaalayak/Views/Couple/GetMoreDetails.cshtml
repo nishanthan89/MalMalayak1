@@ -23,91 +23,142 @@
     <div class="container">
 
         <h2>Create your snippet's </h2><br />
-        <div class="col-md-10 ">
-            <div class="panel panel-default">
-                <div class="panel-heading">  <h4>User Profile</h4></div>
-                <div class="panel-body">
+                                       <div class="col-md-8 ">
+                                           <div class="panel panel-default">
+                                               <div class="panel-heading">  <h4>User Profile</h4></div>
+                                               <div class="panel-body">
 
-                    <div class="box box-info">
+                                                   <div class="box box-info">
 
-                        <div class="box-body">
-                            <div class="col-sm-6">
-                                <div align="center">
-                                    <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
-                                </div>
+                                                       <div class="box-body">
+                                                           <div class="col-sm-6">
+                                                               <div align="center">
+                                                                   <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
+                                                               </div>
 
-                                <br>
+                                                               <br>
 
-                                <!-- /input-group -->
-                            </div>
-                            <div class="col-sm-6">
-                                <h4 style="color:#00b1b1;">Prasad Shankar Huddedar </h4></span>
-                                <span><p>Aspirant</p></span>
-                            </div>
-                            <div class="clearfix"></div>
-                            <hr style="margin:5px 0 5px 0;">
+                                                               <!-- /input-group -->
+                                                           </div>
+                                                           <div class="col-sm-6">
+                                                               <h4 style="color:#00b1b1;">User ID : @Model.Id </h4></span>
+                                                               <span><p> Age : @Model.t</p></span>
+                                                           </div>
+                                                           <div class="clearfix"></div>
+                                                           <hr style="margin:5px 0 5px 0;">
 
-                            <div class="col-md-5">
-                                <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Lagna) </div><div class="col-sm-7 col-xs-6 ">@Model.Lagna</div>
-                                <div class="clearfix"></div>
-                                <div class="bot-border"></div>
-                                <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.StarName) </div><div class="col-sm-7 col-xs-6 ">@Model.StarName</div>
-                                <div class="clearfix"></div>
-                                <div class="bot-border"></div>
-                                <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.CasteName) </div><div class="col-sm-7 col-xs-6 ">@Model.CasteName</div>
-                                <div class="clearfix"></div>
-                                <div class="bot-border"></div>
-                                <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Religion) </div><div class="col-sm-7 col-xs-6 ">@Model.Religion</div>
-                                <div class="clearfix"></div>
-                                <div class="bot-border"></div>
-                                <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Job) </div><div class="col-sm-7 col-xs-6 ">@Model.Job</div>
-                                <div class="clearfix"></div>
-                                <div class="bot-border"></div>
-                                <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Qualification) </div><div class="col-sm-7 col-xs-6 ">@Model.Qualification</div>
-                                <div class="clearfix"></div>
-                                <div class="bot-border"></div>
-                                <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Height) </div><div class="col-sm-7 col-xs-6 ">@Model.Height</div>
+                                                           <div class="col-md-5">
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Lagna) </div><div class="col-sm-7 col-xs-6 ">@Model.Lagna</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.StarName) </div><div class="col-sm-7 col-xs-6 ">@Model.StarName</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.CasteName) </div><div class="col-sm-7 col-xs-6 ">@Model.CasteName</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Religion) </div><div class="col-sm-7 col-xs-6 ">@Model.Religion</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Job) </div><div class="col-sm-7 col-xs-6 ">@Model.Job</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Qualification) </div><div class="col-sm-7 col-xs-6 ">@Model.Qualification</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Height) </div><div class="col-sm-7 col-xs-6 ">@Model.Height</div>
 
-                            </div>
-                            <div class="col-md-2">
-                                <div class="vl"></div>
-                            </div>
-                               
-                                <div class="col-md-5" style="text-align:left;">
+                                                           </div>
+                                                           <div class="col-md-2">
+                                                               <div class="vl"></div>
+                                                           </div>
 
-                                    <div class="clearfix"></div>
-                                    <div class="bot-border"></div>
-                                    <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.BirthPlace) </div><div class="col-sm-7 col-xs-6 ">@Model.BirthPlace</div>
-                                    <div class="clearfix"></div>
-                                    <div class="bot-border"></div>
-                                    <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.BirthTime) </div><div class="col-sm-7 col-xs-6 ">@Model.BirthTime</div>
-                                    <div class="clearfix"></div>
-                                    <div class="bot-border"></div>
-                                    <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Paavam) </div><div class="col-sm-7 col-xs-6 ">@Model.Paavam</div>
-                                    <div class="clearfix"></div>
-                                    <div class="bot-border"></div>
-                                    <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.FartherPlace) </div><div class="col-sm-7 col-xs-6 ">@Model.FartherPlace</div>
-                                    <div class="clearfix"></div>
-                                    <div class="bot-border"></div>
-                                    <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.MotherPlace) </div><div class="col-sm-7 col-xs-6 ">@Model.MotherPlace</div>
-                                    <div class="clearfix"></div>
-                                    <div class="bot-border"></div>
-                                    <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.BirthOfDate) </div><div class="col-sm-7 col-xs-6 ">@Model.BirthOfDate</div>
-                                    <div class="clearfix"></div>
-                                    <div class="bot-border"></div>
-                                    <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Expectation) </div><div class="col-sm-7 col-xs-6 ">@Model.Expectation</div>
-                    
+                                                           <div class="col-md-5" style="text-align:left;" align="left">
 
-                                </div>
-                                <!-- /.box-body -->
-                            </div>
-                            <!-- /.box -->
-                        </div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital " style="text-align:left">@Html.DisplayNameFor(Model => Model.BirthPlace) </div><div class="col-sm-7 col-xs-6 ">@Model.BirthPlace</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.BirthTime) </div><div class="col-sm-7 col-xs-6 ">@Model.BirthTime</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Paavam) </div><div class="col-sm-7 col-xs-6 ">@Model.Paavam</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.FartherPlace) </div><div class="col-sm-7 col-xs-6 ">@Model.FartherPlace</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.MotherPlace) </div><div class="col-sm-7 col-xs-6 ">@Model.MotherPlace</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.BirthOfDate) </div><div class="col-sm-7 col-xs-6 ">@Model.BirthOfDate</div>
+                                                               <div class="clearfix"></div>
+                                                               <div class="bot-border"></div>
+                                                               <div class="col-sm-5 col-xs-6 tital ">@Html.DisplayNameFor(Model => Model.Expectation) </div><div class="col-sm-7 col-xs-6 ">@Model.Expectation</div>
 
 
-                </div>
-            </div>
-        </div>
+                                                           </div>
+                                                           <!-- /.box-body -->
+                                                       </div>
+                                                       <!-- /.box -->
+                                                   </div>
+
+
+
+
+
+
+
+
+
+
+                                               </div>
+                                           </div>
+
+
+                                           <div class="panel panel-default">
+                                               <div class="panel-heading">  <h4>Chart Detail</h4></div>
+                                               <div class="panel-body">
+
+                                                   <div class="box box-info">
+
+                                                       <div class="box-body">
+                                                       
+                                                           <div class="clearfix"></div>
+                                                           <hr style="margin:5px 0 5px 0;">
+
+                                                           <div class="col-md-5">
+                                                               <h1>Lagna Chart</h1> 
+                                                               <img  src="@Model.imageLagna" style="max-height:130px; max-width:250px" />
+                                                           </div>
+                                                           <div class="col-md-2">
+                                                               <div class="vl"></div>
+                                                           </div>
+
+                                                           <div class="col-md-5" style="text-align:left;" align="left">
+                                                               <h1>  Navamsa Chart</h1>
+                                                             
+                                                               <img src="@Model.imageLagna" style="max-height:130px; max-width:250px" />
+
+                                                           </div>
+                                                           <!-- /.box-body -->
+                                                       </div>
+                                                       <!-- /.box -->
+                                                   </div>
+
+
+
+
+
+
+
+
+
+
+                                               </div>
+                                           </div>
+                                       </div>
         <script>
             $(function () {
                 $('#profile-image1').on('click', function () {
@@ -118,6 +169,33 @@
 
 
 
+        <br />
+
+
+
+
+
+        @*<div class="container">
+
+            <div class="box box-info">
+                <div class="row">
+                    <div class="box-body">
+                        <div class="col-lg-5">
+                            Kirakam
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="vl"></div>
+                        </div>
+                        <div class="col-lg-5">
+                            Navamsam
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>*@
     </div>
 
 </body>

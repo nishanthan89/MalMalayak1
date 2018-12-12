@@ -11,7 +11,17 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<body style="background-color:yellow;">
+<head>
+    <style>
+        .Btnmore {
+            padding: 8px 15px;
+            font-size: 10px;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+<body style="background-color:palegreen;">
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
@@ -25,30 +35,28 @@
             @foreach (var cd in Model)
             {
 
-                <div class="col-md-3">
-                    <div class="card" style="background-color:lightblue; margin-bottom:5px;margin-right:5px; ">
+                <div class=" col-md-2">
+                    <div class="class="card text-white bg-info mb-3"" style="background-color:lightblue; margin-bottom:5px;margin-right:5px;max-width:10rem ">
                         @if (cd.GenderType == MalMaalayak.Constants.ConstantDetail.Gender.Male)
                         {
                             <div>
-                                <img class="card-img-top" src="~/images/boy.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="~/images/boy.jpg" alt="Card image" style="width:100%">
                             </div>
                         }
                         else
                         {
                             <div>
-                                <img class="card-img-top" src="~/images/girl.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="~/images/girl.jpg" alt="Card image" style="width:100%">
                             </div>}
-
-
 
                         <div class="card-block ">
                             <h4 class="card-title"></h4>
-                            <p class="card-text" style="line-height:10px">@cd.GenderType</p>
-                            <p class="card-text" style="line-height:10px">@cd.Lagna</p>
-                            <p class="card-text" style="line-height:10px">@cd.StarName</p>
-                            <p class="card-text" style="line-height:10px">@cd.Job</p>
+                            <p class="card-text" style="line-height:10px;text-align:center">@cd.GenderType</p>
+                            <p class="card-text" style="line-height:10px;text-align:center">@cd.Lagna</p>
+                            <p class="card-text" style="line-height:10px;text-align:center">@cd.StarName</p>
+                            <p class="card-text" style="line-height:10px;text-align:center">@cd.Job</p>
                             <div class="card-footer">
-                                <a href="@Url.Action("GetMoreDetails", "Couple", new { id = cd.Id})")" class="btn btn-primary">More</a>
+                                <a href="@Url.Action("GetMoreDetails", "Couple", new { id = cd.Id})")" class="btn btn-primary Btnmore">More</a>
                             </div>
                         </div>
                     </div>

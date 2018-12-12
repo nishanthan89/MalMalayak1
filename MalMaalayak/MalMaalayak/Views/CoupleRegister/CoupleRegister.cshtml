@@ -260,7 +260,8 @@
                                 @Html.DisplayNameFor(model => model.NavamsaChart)
                             </div>
                             <div class="col-lg-9">
-                                <input type="file" name="UploadNawamsa"/>
+                                <input type="file" name="UploadNawamsa" />
+                         
                                 @*@Html.TextBoxFor(model => model.FirstName)*@
                             </div>
                         </div>
@@ -305,39 +306,10 @@
     </main>
 </body>
 </html>
-
-
-@*@section scripts {
-        <script type="text/javascript">
-      $(function () {
-          $('#BirthOfDate').datetimepicker({
-          defaultDate: '@Model.BirthOfDate',
-          format: 'L',
-          showClose: true,
-          showClear: true,
-          toolbarPlacement: 'top'
-            });
-          });
-        </script>
-    }*@
-
-@*<script type="text/javascript">
-        $(function () {
-            $(".datetimepicker").datepicker({
-   
-                format: 'dd/mm/yyyy',
-                startDate: '-3d'
-
-            });
-        });
-
- </script>*@
-
-
 <script>
     $('#datetimepicker6').datetimepicker({
 
-        format: 'DD/MM/YYYY',
+        format: 'MM/DD/YYYY',
         defaultDate: new Date()
        
     });

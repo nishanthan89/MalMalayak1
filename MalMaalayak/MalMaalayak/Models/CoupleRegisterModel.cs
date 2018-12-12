@@ -109,30 +109,26 @@ namespace MalMaalayak.Models
         [Display(Name = "Upload Navamsa Chart")]
         public byte[] NavamsaChart { get; set; }
 
+        public string imageLagna { get; set; }
+        public string imageNavamsa { get; set; }
+        public string imageType { get; set; }
 
-
-
-        //public int GenderId { get; set; }
-        //public int CastId { get; set; }
-        //public int StarId { get; set; }
-
-        //public enum Gender
-        //{
-        //    Male = 1,
-        //    FeMale = 2,
-        //    Alli = 3
-        //}
-
-        // public ConstantDetail.Gender GenderList { get; set; }
-        // public ConstantDetail.Religion ReligionList { get; set; }
-        //public ConstantDetail.Caste CasteList { get; set; }
-        //public ConstantDetail.Star StarList { get; set; }
-        //public ConstantDetail.Lagna LagnaList { get; set; }
-        //public ConstantDetail.Qualification QualificationList { get; set; }
-        //public ConstantDetail.Country CountryList { get; set; }
-        //public ConstantDetail.Expectation ExpectationList { get; set; }
-
-
+        public string  _t { get; set; }
+        public string  t
+        {
+            get
+            {
+                var year = DateTime.Now.Year - BirthOfDate.Value.Year;
+                var month= DateTime.Now.Month - BirthOfDate.Value.Month;
+                string Age = year.ToString() + "Years" +""+ month.ToString()+ "Months";
+                //_t = DateTime.Now - BirthOfDate;
+                return Age;
+            }
+            set
+            {
+                _t = value;
+            }
+        }
 
 
     }

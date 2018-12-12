@@ -58,6 +58,7 @@ namespace MalMaalayak.BL
                               
                               select new ClientDetailClassModel()
                               {
+                                  Id = cpl.Id,
                                   GenderType = (Gender)cpl.Gender,
                                   Lagna = (Lagna)jd.Lagna,
                                   StarName = (Star)jd.StarId,
@@ -89,7 +90,7 @@ namespace MalMaalayak.BL
 
                               select new ClientDetailClassModel()
                               {
-
+                                  Id = cpl.Id,
                                   GenderType = (Gender)cpl.Gender,
                                   Lagna = (Lagna)jd.Lagna,
                                   Star = (Star)jd.StarId,
@@ -287,7 +288,7 @@ namespace MalMaalayak.BL
                               //Residence=bd.r
 
 
-                          }).ToList();
+                          }).OrderBy(s=>s.Id).ToList();
 
 
             return coList;
@@ -333,12 +334,24 @@ namespace MalMaalayak.BL
                                                      Expectation = (ConstantDetail.Expectation)cpl.Expectation,
                                                      Country = (ConstantDetail.Country)cnt.Country,
                                                      Qualification = (ConstantDetail.Qualification)cpl.Qualification,
+                                                     LagnaChart=jd.LagnaChart,
+                                                     NavamsaChart=jd.NavamsaChart
 
 
 
 
 
                                                  }).FirstOrDefault();
+            if (clientDetails.LagnaChart!=null )
+            {
+                clientDetails.imageLagna = "data: image / png; base64," + Convert.ToBase64String(clientDetails.LagnaChart);
+            }
+            if (clientDetails.NavamsaChart != null)
+            {
+                clientDetails.imageNavamsa = "data: image / png; base64," + Convert.ToBase64String(clientDetails.NavamsaChart);
+            }
+
+            
             return clientDetails;
 
         }
